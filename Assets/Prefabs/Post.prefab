@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5081405474750293338}
   - component: {fileID: 5081405474750293339}
   - component: {fileID: 5842345288980606211}
+
   m_Layer: 0
   m_Name: Post
   m_TagString: Untagged
@@ -213,7 +214,9 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+
 --- !u!114 &5842345288980606211
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
