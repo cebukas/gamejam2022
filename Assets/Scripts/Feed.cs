@@ -39,7 +39,7 @@ public class Feed : MonoBehaviour
 
         _lastQuoteIndex = randomQuoteIndex;
         
-        //Poster.GetComponent<Poster>().Quote(ActiveQuote);
+        Poster.GetComponent<Poster>().Quote(ActiveQuote);
         Debug.Log($"{ActiveQuote.type}; {ActiveQuote.statement}");
     }
 
@@ -49,7 +49,7 @@ public class Feed : MonoBehaviour
         ActivePosts.Add(PossiblePosts.posts[randomPostIndex]);
         _lastPostIndex = randomPostIndex;
 
-       // Poster.GetComponent<Poster>().Post(Posts[Posts.Count-1]);
+        Poster.GetComponent<Poster>().Post(ActivePosts[ActivePosts.Count-1]);
         Debug.Log($"{ActivePosts[ActivePosts.Count-1].postContent}");
     }
 
@@ -60,8 +60,9 @@ public class Feed : MonoBehaviour
         // pick random comment 
         var randomComment = PickRandom(ActivePosts[randomPost].possibleComments, -1);
         // comment
-
+        Debug.Log(randomPost);
         Poster.GetComponent<Poster>().Comment(randomPost, ActivePosts[randomPost].possibleComments[randomComment]);
+
         Debug.Log($"{ActivePosts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{ActivePosts[randomPost].possibleComments[randomComment].comment}' " +
                   $" under {ActivePosts[randomPost].postContent}");
     }

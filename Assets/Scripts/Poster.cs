@@ -7,7 +7,8 @@ public class Poster : MonoBehaviour
 {
     public GameObject quotePrefab, postPrefab, commentPrefab;
     private GameObject instantiatedQuote, instantiatedPost, instantiatedComment;
-    private List<GameObject> instantiatedPosts, instantiatedComments;
+    private List<GameObject> instantiatedPosts = new List<GameObject>();
+    private List<GameObject> instantiatedComments = new List<GameObject>();
 
     public void Quote(Quote quoteData)
     {
