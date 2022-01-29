@@ -227,12 +227,15 @@ public class Feed : MonoBehaviour
         else
         {
             post._approved = true;
-            foreach(var statChange in post.statChanges)
+            if(post.statChanges != null)
             {
-                if (post._approved)
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
-                else
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
+                foreach(var statChange in post.statChanges)
+                {
+                    if (post._approved)
+                        Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
+                    else
+                        Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
+                }
             }
         }
         
@@ -262,6 +265,10 @@ public class Feed : MonoBehaviour
     private void TryChangingQuote()
     {
         var randomQuoteIndex = PickRandom(DictatorQuotes.quotes, _lastQuoteIndex);
+        if(randomQuoteIndex == -1)
+        {
+            return;
+        }
         ActiveQuote = DictatorQuotes.quotes[randomQuoteIndex];
 
         _lastQuoteIndex = randomQuoteIndex;
@@ -327,7 +334,10 @@ public class Feed : MonoBehaviour
     {
         // pick random post to comment on
         var randomPost = PickRandom(InstantiatedPosts, -1);
-
+        if (randomPost == -1)
+        {
+            return;
+        }
         if (!Posts[randomPost]._approved)
         {
             return;
@@ -339,9 +349,7 @@ public class Feed : MonoBehaviour
         var newComment = Posts[randomPost].possibleComments[randomComment];
         newComment._uniqueId = uniqueId;
         uniqueId++;
-        
         Comments.Add(newComment);
-        
         GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], Posts[randomPost], newComment);
         InstantiatedComments.Add(instantiatedComment);
 
