@@ -7,8 +7,10 @@ public class DictatorQuotes : ScriptableObject
 {
     public List<Quote> quotes;
 }
- [Serializable]
-public struct Quote{
-    public int type;
+
+[Serializable]
+public struct Quote
+{
+    public int type; // See QuoteMood enum
     public string statement;
 }

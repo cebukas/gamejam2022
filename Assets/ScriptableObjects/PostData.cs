@@ -7,8 +7,10 @@ public class PostData : ScriptableObject
 {
     public List<Post> posts;
 }
- [Serializable]
-public struct Post{
+
+[Serializable]
+public struct Post
+{
     public int postType;
     public string postContent;
     public int statType;
