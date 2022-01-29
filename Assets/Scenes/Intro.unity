@@ -577,6 +577,13 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     isPlaying: 0
+  - name: click
+    clip: {fileID: 8300000, guid: 73a2b6ee4ad563f49806787ed86a18f0, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    isPlaying: 0
 --- !u!114 &1288370523
 MonoBehaviour:
   m_ObjectHideFlags: 0

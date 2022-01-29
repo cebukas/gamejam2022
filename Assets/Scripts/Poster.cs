@@ -3,19 +3,20 @@ using TMPro;
 
 public class Poster : MonoBehaviour
 {
-    public GameObject quotePrefab, postPrefab, commentPrefab;
-    private GameObject instantiatedQuote, instantiatedPost, instantiatedComment;
+    public GameObject quoteGO, postPrefab, commentPrefab;
+    private GameObject instantiatedPost, instantiatedComment;
+
+    public GameObject postParentGO, postAppendingGO;
 
     public void Quote(Quote quoteData)
     {
-        if (instantiatedQuote == null){
-            instantiatedQuote = Instantiate(quotePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        }
-        instantiatedQuote.GetComponent<UIQuote>().UpdateFields(quoteData);
+        quoteGO.GetComponent<UIQuote>().UpdateFields(quoteData);
     }
     public GameObject Post(Post post)
     {
-        instantiatedPost = Instantiate(postPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        instantiatedPost = Instantiate(postPrefab, postParentGO.transform);
+
+        instantiatedPost.transform.SetSiblingIndex(postAppendingGO.transform.GetSiblingIndex() + 1);
 
         instantiatedPost.GetComponent<UIPoster>().UpdateFields(post);
 
@@ -23,7 +24,9 @@ public class Poster : MonoBehaviour
     }
     public GameObject Comment(GameObject postGO, Post post, Comment comment)
     { 
-        instantiatedComment = Instantiate(commentPrefab, postGO.transform);
+        instantiatedComment = Instantiate(commentPrefab, postParentGO.transform);
+
+        instantiatedComment.transform.SetSiblingIndex(postGO.transform.GetSiblingIndex() + 1);
 
         instantiatedComment.GetComponent<UIComment>().UpdateFields(post, comment);
 

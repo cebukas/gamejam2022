@@ -5,13 +5,18 @@ public class UIComment : MonoBehaviour
 {
     public Comment comment;
     public Post post;
+     private TMP_Text title, body;
 
-    public void UpdateFields(Post post, Comment comment){                    // TODO Karolis  update when UI comes
+    public void UpdateFields(Post post, Comment comment){               
         this.comment = comment;
         this.post = post;
+        
+        var TMPs = GetComponentsInChildren<TMP_Text>();
+        title = TMPs[0];
+        body = TMPs[1];
 
-        TMP_Text commentMPComponent = GetComponent<TMP_Text>();
-        commentMPComponent.text = comment.comment;
+        title.text = comment.commentingGroup;
+        body.text = comment.comment;
     }
 
     public void onApproveClick()
