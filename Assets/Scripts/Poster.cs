@@ -11,24 +11,21 @@ public class Poster : MonoBehaviour
         if (instantiatedQuote == null){
             instantiatedQuote = Instantiate(quotePrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }
-        TMP_Text quoteTMPComponent = instantiatedQuote.GetComponent<TMP_Text>();
-        quoteTMPComponent.text = quoteData.statement;
+        instantiatedQuote.GetComponent<UIQuote>().UpdateFields(quoteData);
     }
     public GameObject Post(Post post)
     {
         instantiatedPost = Instantiate(postPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
-        TMP_Text postTMPComponent = instantiatedPost.GetComponent<TMP_Text>();
-        postTMPComponent.text = post.postContent;
+        instantiatedPost.GetComponent<UIPoster>().UpdateFields(post);
 
         return instantiatedPost;
     }
-    public GameObject Comment(GameObject post, Comment comment)
+    public GameObject Comment(GameObject postGO, Post post, Comment comment)
     { 
-        instantiatedComment = Instantiate(commentPrefab, post.transform);
+        instantiatedComment = Instantiate(commentPrefab, postGO.transform);
 
-        TMP_Text commentTMPComponent = instantiatedComment.GetComponent<TMP_Text>();
-        commentTMPComponent.text = comment.comment;
+        instantiatedComment.GetComponent<UIComment>().UpdateFields(post, comment);
 
         return instantiatedComment;
     }

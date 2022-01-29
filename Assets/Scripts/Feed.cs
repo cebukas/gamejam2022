@@ -160,7 +160,7 @@ public class Feed : MonoBehaviour
         {
             return;
         }
-
+        Debug.Log("someone is trying to comment");
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
@@ -171,7 +171,7 @@ public class Feed : MonoBehaviour
         
         Comments.Add(newComment);
         
-        GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], newComment);
+        GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], Posts[randomPost], newComment);
         InstantiatedComments.Add(instantiatedComment);
 
         Debug.Log($"{Posts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{Posts[randomPost].possibleComments[randomComment].comment}' " +

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7425663550379655356}
   - component: {fileID: 7425663550379655357}
   - component: {fileID: 7425663550379655330}
+  - component: {fileID: 6560661375357774122}
   m_Layer: 0
   m_Name: PostDummy
   m_TagString: Untagged
@@ -170,3 +171,23 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &6560661375357774122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7425663550379655331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b90c3a9b63c774439529f7252284128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  post:
+    user: 
+    postType: 0
+    postContent: 
+    statChanges: []
+    possibleComments: []
+    _uniqueId: 0
+    _approved: 0
