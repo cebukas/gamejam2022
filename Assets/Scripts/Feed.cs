@@ -128,10 +128,12 @@ public class Feed : MonoBehaviour
     {
         var post = GetPostByUniqueId(postId);
         post._approved = true;
-        
-        foreach (var statChange in post.statChanges)
+        if (post.statChanges != null)
         {
-            Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange * 2);
+            foreach (var statChange in post.statChanges)
+            {
+                Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange * 2);
+            }
         }
     }
 
@@ -248,13 +250,17 @@ public class Feed : MonoBehaviour
         if (e.Status != 0)
         {
             comment._approved = true;
-            foreach(var statChange in comment.statChanges)
+            if(comment.statChanges != null)
             {
-                if (comment._approved)
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
-                else
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
+                foreach(var statChange in comment.statChanges)
+                {
+                    if (comment._approved)
+                        Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
+                    else
+                        Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
+                }
             }
+
         }
         else
         {
