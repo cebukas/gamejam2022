@@ -316,10 +316,10 @@ public class Feed : MonoBehaviour
         // pick random post to comment on
         var randomPost = PickRandom(InstantiatedPosts, -1);
 
-        if (!Posts[randomPost]._approved)
-        {
-            return;
-        }
+        //if (!Posts[randomPost]._approved)
+        //{
+        //    return;
+        //}
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
