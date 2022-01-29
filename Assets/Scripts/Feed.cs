@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,7 @@ public class Feed : MonoBehaviour
     
     public Quote ActiveQuote;
     public List<Post> Posts;
+    public List<Post> BlockedPosts;
     public List<Comment> Comments;
     public List<GameObject> InstantiatedPosts = new List<GameObject>();
     public List<GameObject> InstantiatedComments = new List<GameObject>();
@@ -57,6 +59,7 @@ public class Feed : MonoBehaviour
             // Remove this post
             Posts.RemoveAt(e.objectId);
             InstantiatedPosts.RemoveAt(e.objectId);
+            BlockedPosts.Add(post);
         }
         else
         {
@@ -89,8 +92,7 @@ public class Feed : MonoBehaviour
 
     private void TryPosting()
     {
-        var randomPostIndex = PickRandom(PossiblePosts.posts, _lastPostIndex);
-
+        var randomPostIndex = PickRandom(PossiblePosts.posts.Except(BlockedPosts).ToList(), _lastPostIndex);
         var foundPostByMood = false;
         int index = 0;
         foreach (var post in PossiblePosts.posts)
@@ -139,6 +141,12 @@ public class Feed : MonoBehaviour
     {
         // pick random post to comment on
         var randomPost = PickRandom(InstantiatedPosts, -1);
+
+        if (!Posts[randomPost].approved)
+        {
+            return;
+        }
+
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
