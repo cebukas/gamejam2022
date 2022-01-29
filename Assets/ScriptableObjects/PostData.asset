@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274192585eb32254997e6dee6684b8dd, type: 3}
   m_Name: PostData
   m_EditorClassIdentifier: 
-  posts: []
+  posts:
+  - postType: 0
+    postContent: 
+    statType: 0
+    statChangeValue: 0
