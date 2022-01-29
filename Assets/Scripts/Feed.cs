@@ -218,6 +218,7 @@ public class Feed : MonoBehaviour
         {
             // Block this post
             BlockedPosts.Add(post);
+            DeletePostByUniqueId(e.ObjectId);
         }
         else
         {
@@ -231,7 +232,6 @@ public class Feed : MonoBehaviour
             }
         }
         
-        DeletePostByUniqueId(e.ObjectId);
     }
 
     private void InteractorOnCommentInteractionEvent(object sender, CommentInteractionEventArgs e)
@@ -239,7 +239,8 @@ public class Feed : MonoBehaviour
         var comment = GetCommentByUniqueId(e.CommentId);
         
         if (e.Status != 0)
-        { 
+        {
+            comment._approved = true;
             foreach(var statChange in comment.statChanges)
             {
                 if (comment._approved)
@@ -248,8 +249,10 @@ public class Feed : MonoBehaviour
                     Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
             }
         }
-        
-        DeleteCommentByUniqueId(e.CommentId);
+        else
+        {
+            DeleteCommentByUniqueId(e.CommentId);
+        }
     }
 
     private void TryChangingQuote()
