@@ -12,6 +12,7 @@ public class PostData : ScriptableObject
 [Serializable]
 public class Post
 {
+    public string user;
     public int postType; // correlates with quote type -- if quote is angery -- make angery posts
     public string postContent;
     public int statType; // What kind of stat post is changing
