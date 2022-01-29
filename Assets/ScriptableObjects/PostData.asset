@@ -13,69 +13,333 @@ MonoBehaviour:
   m_Name: PostData
   m_EditorClassIdentifier: 
   posts:
-  - user: USERIS A
+  - user: '@League of Evil'
     postType: 1
-    postContent: Covfefe
-    statChanges: []
+    postContent: Our glorious league has gifted you a new deadly weapon.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: -5
+    - statType: 2
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 10
     possibleComments:
-    - commentingGroup: Fems
-      comment: It's COFFEE YOU RETARD
-      statChanges: []
+    - commentingGroup: '@Western Alliance'
+      comment: World has to know this!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -3
       _uniqueId: 0
       _approved: 0
-    - commentingGroup: Environmentalists
-      comment: What?!
-      statChanges: []
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Thx, comrades!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 4
+        disapprovalStatChange: -4
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -5
       _uniqueId: 0
       _approved: 0
-    _uniqueId: 1
+    _uniqueId: 0
     _approved: 0
-  - user: USERIS B
+  - user: '@Western Alliance'
+    postType: 1
+    postContent: Democracy for all nations!
+    statChanges:
+    - statType: 1
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 2
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 4
+      approvalStatChange: 10
+      disapprovalStatChange: -5
+    possibleComments:
+    - commentingGroup: '@League of Evil'
+      comment: NOPE.
+      statChanges:
+      - statType: 2
+        approvalStatChange: 4
+        disapprovalStatChange: -4
+      - statType: 4
+        approvalStatChange: 2
+        disapprovalStatChange: -2
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Western Alliance'
+    postType: 1
+    postContent: We will not interfere if the Supreme ruler invades.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: -5
+    - statType: 2
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: 5
+      disapprovalStatChange: 5
+    - statType: 8
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: LOL.
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Citizens Militia'
+    postType: 1
+    postContent: Ten citizens died on the border.
+    statChanges:
+    - statType: 8
+      approvalStatChange: 10
+      disapprovalStatChange: -5
+    possibleComments:
+    - commentingGroup: '@Citizens Militia'
+      comment: Hundreds will die soon.
+      statChanges:
+      - statType: 8
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@H4XER$ UNITED'
+    postType: 1
+    postContent: Pipeline of Western Alliance breached.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: 15
+      disapprovalStatChange: -15
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: Sanctions imposed.
+      statChanges:
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 1
+    postContent: War will hit the net worth of Crypto kopek.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: Make sure of that.
+      statChanges:
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Whatevs.
+      statChanges:
+      - statType: 1
+        approvalStatChange: 10
+        disapprovalStatChange: -10
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 1
+    postContent: War will not impact the net worth of Crypto kopek.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 15
+      disapprovalStatChange: -15
+    - statType: 4
+      approvalStatChange: -15
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: 8
+      disapprovalStatChange: -8
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: IT WILL.
+      statChanges:
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 1
+    postContent: Just invade the damn thing!
+    statChanges:
+    - statType: 2
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 4
+      approvalStatChange: 5
+      disapprovalStatChange: -5
+    - statType: 8
+      approvalStatChange: -10
+      disapprovalStatChange: 5
+    possibleComments:
+    - commentingGroup: '@League of Evil'
+      comment: Go for it boy!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 3
+        disapprovalStatChange: -3
+      - statType: 4
+        approvalStatChange: -3
+        disapprovalStatChange: 3
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@Citizens Militia'
+      comment: How many of us have to die for this nonsense?
+      statChanges:
+      - statType: 2
+        approvalStatChange: -4
+        disapprovalStatChange: 4
+      - statType: 8
+        approvalStatChange: 8
+        disapprovalStatChange: -8
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 2
+    postContent: All potato fields have been converted into corn.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 3
+      disapprovalStatChange: -3
+    - statType: 2
+      approvalStatChange: 5
+      disapprovalStatChange: -5
+    - statType: 8
+      approvalStatChange: -5
+      disapprovalStatChange: 3
+    possibleComments:
+    - commentingGroup: '@USER256819'
+      comment: Famine, here we go...
+      statChanges:
+      - statType: 8
+        approvalStatChange: 3
+        disapprovalStatChange: -3
+      - statType: 2
+        approvalStatChange: -2
+        disapprovalStatChange: 2
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
     postType: 3
-    postContent: Bitcoin bad, CryptoKopek good!
-    statChanges: []
+    postContent: A supreme order to kill 200 peasants!
+    statChanges:
+    - statType: 2
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: -20
+      disapprovalStatChange: 20
     possibleComments:
-    - commentingGroup: UN
-      comment: Pamp it
-      statChanges: []
+    - commentingGroup: '@USER256819'
+      comment: Dear Lord!
+      statChanges:
+      - statType: 8
+        approvalStatChange: 5
+        disapprovalStatChange: -5
       _uniqueId: 0
       _approved: 0
-    - commentingGroup: Fems
-      comment: Damp it
-      statChanges: []
+    - commentingGroup: '@Western Alliance'
+      comment: The world has to know about this!
+      statChanges:
+      - statType: 8
+        approvalStatChange: 8
+        disapprovalStatChange: -5
       _uniqueId: 0
       _approved: 0
-    - commentingGroup: Environmentalists
-      comment: BTC BAD
-      statChanges: []
-      _uniqueId: 0
-      _approved: 0
-    _uniqueId: 1
+    _uniqueId: 0
     _approved: 0
-  - user: USERIS C
-    postType: 5
-    postContent: hmm
-    statChanges: []
+  - user: '@The Supreme Ruler'
+    postType: 3
+    postContent: I want to eliminate all dogs in this country!
+    statChanges:
+    - statType: 2
+      approvalStatChange: 5
+      disapprovalStatChange: -5
+    - statType: 4
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 8
+      approvalStatChange: -8
+      disapprovalStatChange: 8
     possibleComments:
-    - commentingGroup: Fems
-      comment: hmm
-      statChanges: []
+    - commentingGroup: '@The Supreme Ruler'
+      comment: And cats.
+      statChanges:
+      - statType: 2
+        approvalStatChange: 3
+        disapprovalStatChange: -3
+      - statType: 8
+        approvalStatChange: -3
+        disapprovalStatChange: 3
       _uniqueId: 0
       _approved: 0
-    - commentingGroup: UN
-      comment: hmm
-      statChanges: []
+    - commentingGroup: '@The Supreme Ruler'
+      comment: And birds.
+      statChanges:
+      - statType: 2
+        approvalStatChange: 6
+        disapprovalStatChange: -6
+      - statType: 8
+        approvalStatChange: -10
+        disapprovalStatChange: 10
       _uniqueId: 0
       _approved: 0
-    - commentingGroup: Citizen
-      comment: hmm
-      statChanges: []
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Snakes can stay.
+      statChanges:
+      - statType: 2
+        approvalStatChange: 10
+        disapprovalStatChange: -10
+      - statType: 4
+        approvalStatChange: -4
+        disapprovalStatChange: 4
       _uniqueId: 0
       _approved: 0
-    - commentingGroup: Environmentalists
-      comment: hmm
-      statChanges: []
-      _uniqueId: 0
-      _approved: 0
-    _uniqueId: 2
+    _uniqueId: 0
     _approved: 0

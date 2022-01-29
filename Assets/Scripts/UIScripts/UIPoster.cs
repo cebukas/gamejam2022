@@ -20,8 +20,8 @@ public class UIPoster : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("click"); 
 
-        this.transform.SetSiblingIndex(100); // goes to the back, need to rework
-
+        this.transform.SetSiblingIndex(this.transform.parent.gameObject.transform.Find("Official News Box").GetSiblingIndex() + 1);
+   
         Destroy(this.transform.Find("Buttons").gameObject);
 
         Interactor.PostApprove(post._uniqueId);
