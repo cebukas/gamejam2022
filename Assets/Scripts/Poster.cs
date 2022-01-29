@@ -26,12 +26,13 @@ public class Poster : MonoBehaviour
 
         instantiatedPosts.Add(instantiatedPost);
     }
-    public void Comment(int postId, string comment)      // to change from string comment to comment object/struct whatever
+    public void Comment(int postId, Comment comment)
     { 
+        Debug.Log(postId);
         instantiatedComment = Instantiate(commentPrefab, instantiatedPosts[postId].transform);
 
         TMP_Text commentTMPComponent = instantiatedComment.GetComponent<TMP_Text>();
-        commentTMPComponent.text = comment;
+        commentTMPComponent.text = comment.comment;
 
         instantiatedComments.Add(instantiatedComment);
     }
