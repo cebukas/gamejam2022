@@ -17,6 +17,7 @@ public class StatManager : MonoBehaviour
 
     public int PerkStatus = 0;
 
+
     private void Start()
     {
         cryptoKopek = 50;

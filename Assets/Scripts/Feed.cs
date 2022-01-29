@@ -320,7 +320,6 @@ public class Feed : MonoBehaviour
         {
             return;
         }
-        Debug.Log("someone is trying to comment");
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
