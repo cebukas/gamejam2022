@@ -23,6 +23,8 @@ public class UIComment : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("click"); 
 
+        Destroy(this.transform.Find("Buttons").gameObject);
+
         Interactor.CommentApprove(post._uniqueId, comment._uniqueId);
     }
     public void onDisapproveClick()

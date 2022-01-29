@@ -17,6 +17,15 @@ public class StatManager : MonoBehaviour
 
     public int PerkStatus = 0;
 
+
+    private void Start()
+    {
+        cryptoKopek = 50;
+        dictatorApproval = 50;
+        citizenSupport = 50;
+        foreignAffairs = 50;
+    }
+
     /*
      * Change our stats by 'change'
      * 'change' can be a negative number as well
@@ -69,5 +78,11 @@ public class StatManager : MonoBehaviour
         {
             PerkStatus |= (int) PerkEnum.Embrace;
         }
+    }
+    
+    // returns false if any of stats is 0, this means game over
+    public bool CheckStatStatus()
+    {
+        return citizenSupport > 0 && cryptoKopek > 0 && foreignAffairs > 0 && dictatorApproval > 0;
     }
 }
