@@ -61,6 +61,7 @@ public class Feed : MonoBehaviour
         var randomComment = PickRandom(ActivePosts[randomPost].possibleComments, -1);
         // comment
         Debug.Log(randomPost);
+    
         Poster.GetComponent<Poster>().Comment(randomPost, ActivePosts[randomPost].possibleComments[randomComment]);
 
         Debug.Log($"{ActivePosts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{ActivePosts[randomPost].possibleComments[randomComment].comment}' " +
