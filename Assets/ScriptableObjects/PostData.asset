@@ -17,11 +17,50 @@ MonoBehaviour:
     postContent: Covfefe
     statType: 1
     statChangeValue: 100
+    possibleComments:
+    - commentingGroup: Fems
+      comment: It's COFFEE YOU RETARD
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Environmentalists
+      comment: What?!
+      statType: 0
+      statChangeValue: 0
   - postType: 3
     postContent: Bitcoin bad, CryptoKopek good!
     statType: 2
     statChangeValue: 100
+    possibleComments:
+    - commentingGroup: UN
+      comment: Pamp it
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Fems
+      comment: Damp it
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Environmentalists
+      comment: BTC BAD
+      statType: 0
+      statChangeValue: 0
   - postType: 5
     postContent: hmm
     statType: 5
     statChangeValue: 69
+    possibleComments:
+    - commentingGroup: Fems
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: UN
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Citizen
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Environmentalists
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
