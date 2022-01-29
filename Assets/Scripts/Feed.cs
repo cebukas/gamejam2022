@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 public class Feed : MonoBehaviour
 {    
     public GameObject Poster;
+    public GameObject Statman;
+
     private const float PostDelaySeconds = 10.0f;
     private const float QuoteDelaySeconds = 5.0f;
     private const float CommentDelaySeconds = 15.0f;
@@ -27,9 +29,27 @@ public class Feed : MonoBehaviour
 
     public void StartUpdateFeedRoutine()
     {
+        PrepareForEvents();
+        
         InvokeRepeating(nameof(TryChangingQuote), 0, QuoteDelaySeconds);
         InvokeRepeating(nameof(TryPosting), 0, PostDelaySeconds);
         InvokeRepeating(nameof(TryCommenting), 0, CommentDelaySeconds);
+    }
+
+    private void PrepareForEvents()
+    {
+        Interactor.CommentInteractionEvent += InteractorOnCommentInteractionEvent;
+        Interactor.PostInteractionEvent += InteractorOnPostInteractionEvent;
+    }
+
+    private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void InteractorOnCommentInteractionEvent(object sender, CommentInteractionEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 
     private void TryChangingQuote()
