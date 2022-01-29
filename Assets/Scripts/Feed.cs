@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 
 
 public class Feed : MonoBehaviour
-{
+{    
+    public GameObject Poster;
     private const float PostDelaySeconds = 10.0f;
     private const float QuoteDelaySeconds = 5.0f;
     private const float CommentDelaySeconds = 15.0f;
@@ -18,11 +19,12 @@ public class Feed : MonoBehaviour
     private PostData PossiblePosts;
     
     public Quote ActiveQuote;
-    public List<Post> Posts;
+    public List<Post> ActivePosts;
 
     private int _lastQuoteIndex = -1;
     private int _lastPostIndex = -1;
     
+
     public void StartUpdateFeedRoutine()
     {
         InvokeRepeating(nameof(TryChangingQuote), 0, QuoteDelaySeconds);
@@ -37,27 +39,33 @@ public class Feed : MonoBehaviour
 
         _lastQuoteIndex = randomQuoteIndex;
         
+        Poster.GetComponent<Poster>().Quote(ActiveQuote);
         Debug.Log($"{ActiveQuote.type}; {ActiveQuote.statement}");
     }
 
     private void TryPosting()
     {
         var randomPostIndex = PickRandom(PossiblePosts.posts, _lastPostIndex);
-        Posts.Add(PossiblePosts.posts[randomPostIndex]);
+        ActivePosts.Add(PossiblePosts.posts[randomPostIndex]);
         _lastPostIndex = randomPostIndex;
 
-        Debug.Log($"{Posts[Posts.Count-1].postContent}");
+        Poster.GetComponent<Poster>().Post(ActivePosts[ActivePosts.Count-1]);
+        Debug.Log($"{ActivePosts[ActivePosts.Count-1].postContent}");
     }
 
     private void TryCommenting()
     {
         // pick random post to comment on
-        var randomPost = PickRandom(Posts, -1);
+        var randomPost = PickRandom(ActivePosts, -1);
         // pick random comment 
-        var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
+        var randomComment = PickRandom(ActivePosts[randomPost].possibleComments, -1);
         // comment
-        Debug.Log($"{Posts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{Posts[randomPost].possibleComments[randomComment].comment}' " +
-                  $" under {Posts[randomPost].postContent}");
+        Debug.Log(randomPost);
+    
+        Poster.GetComponent<Poster>().Comment(randomPost, ActivePosts[randomPost].possibleComments[randomComment]);
+
+        Debug.Log($"{ActivePosts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{ActivePosts[randomPost].possibleComments[randomComment].comment}' " +
+                  $" under {ActivePosts[randomPost].postContent}");
     }
 
     private int PickRandom<T>(IReadOnlyCollection<T> objects, int lastIndex)

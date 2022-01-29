@@ -7,7 +7,8 @@ public class Poster : MonoBehaviour
 {
     public GameObject quotePrefab, postPrefab, commentPrefab;
     private GameObject instantiatedQuote, instantiatedPost, instantiatedComment;
-    private List<GameObject> instantiatedPosts, instantiatedComments;
+    private List<GameObject> instantiatedPosts = new List<GameObject>();
+    private List<GameObject> instantiatedComments = new List<GameObject>();
 
     public void Quote(Quote quoteData)
     {
@@ -26,12 +27,13 @@ public class Poster : MonoBehaviour
 
         instantiatedPosts.Add(instantiatedPost);
     }
-    public void Comment(int postId, string comment)      // to change from string comment to comment object/struct whatever
+    public void Comment(int postId, Comment comment)
     { 
+        Debug.Log(postId);
         instantiatedComment = Instantiate(commentPrefab, instantiatedPosts[postId].transform);
 
         TMP_Text commentTMPComponent = instantiatedComment.GetComponent<TMP_Text>();
-        commentTMPComponent.text = comment;
+        commentTMPComponent.text = comment.comment;
 
         instantiatedComments.Add(instantiatedComment);
     }
