@@ -9,10 +9,20 @@ public class PostData : ScriptableObject
 }
 
 [Serializable]
-public struct Post
+public class Post
 {
     public int postType;
     public string postContent;
+    public int statType;
+    public int statChangeValue;
+    public Comment[] possibleComments;
+}
+
+[Serializable]
+public class Comment
+{
+    public string commentingGroup;
+    public string comment;
     public int statType;
     public int statChangeValue;
 }

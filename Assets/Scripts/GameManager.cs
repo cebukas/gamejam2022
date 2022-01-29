@@ -1,21 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private Feed MainFeed { get; set; }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        MainFeed = gameObject.AddComponent<Feed>();
-    }
+    public GameObject MainFeed;
 
     // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        MainFeed.UpdateFeed();
+        MainFeed.GetComponent<Feed>().StartUpdateFeedRoutine();
     }
 
     private void GameCycle()
