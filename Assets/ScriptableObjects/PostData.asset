@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: PostData
   m_EditorClassIdentifier: 
   posts:
-  - postType: 0
-    postContent: 
-    statType: 0
-    statChangeValue: 0
+  - postType: 1
+    postContent: Covfefe
+    statType: 1
+    statChangeValue: 100
+  - postType: 3
+    postContent: Bitcoin bad, CryptoKopek good!
+    statType: 2
+    statChangeValue: 100
+  - postType: 5
+    postContent: hmm
+    statType: 5
+    statChangeValue: 69
