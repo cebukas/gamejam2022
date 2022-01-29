@@ -12,6 +12,7 @@ namespace Core
         GameWon,
         GameOver,
     }
+
     public class SceneController : MonoBehaviour
     {
         public void LoadScene(Scene scene)
