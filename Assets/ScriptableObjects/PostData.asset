@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274192585eb32254997e6dee6684b8dd, type: 3}
+  m_Name: PostData
+  m_EditorClassIdentifier: 
+  posts:
+  - postType: 1
+    postContent: Covfefe
+    statType: 1
+    statChangeValue: 100
+    possibleComments:
+    - commentingGroup: Fems
+      comment: It's COFFEE YOU RETARD
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Environmentalists
+      comment: What?!
+      statType: 0
+      statChangeValue: 0
+  - postType: 3
+    postContent: Bitcoin bad, CryptoKopek good!
+    statType: 2
+    statChangeValue: 100
+    possibleComments:
+    - commentingGroup: UN
+      comment: Pamp it
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Fems
+      comment: Damp it
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Environmentalists
+      comment: BTC BAD
+      statType: 0
+      statChangeValue: 0
+  - postType: 5
+    postContent: hmm
+    statType: 5
+    statChangeValue: 69
+    possibleComments:
+    - commentingGroup: Fems
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: UN
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Citizen
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
+    - commentingGroup: Environmentalists
+      comment: hmm
+      statType: 0
+      statChangeValue: 0
