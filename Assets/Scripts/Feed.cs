@@ -187,6 +187,7 @@ public class Feed : MonoBehaviour
         }
         
         Posts.RemoveAt(index);
+        Destroy(InstantiatedPosts[index]);
         InstantiatedPosts.RemoveAt(index);
     }
     
@@ -205,6 +206,7 @@ public class Feed : MonoBehaviour
         }
         
         Comments.RemoveAt(index);
+        Destroy(InstantiatedComments[index]);
         InstantiatedComments.RemoveAt(index);
     }
     
