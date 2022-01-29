@@ -14,6 +14,8 @@ public class Poster : MonoBehaviour
     }
     public GameObject Post(Post post)
     {
+        FindObjectOfType<AudioManager>().Play("notification"); 
+
         instantiatedPost = Instantiate(postPrefab, postParentGO.transform);
 
         instantiatedPost.transform.SetSiblingIndex(postAppendingGO.transform.GetSiblingIndex() + 1);
@@ -24,6 +26,8 @@ public class Poster : MonoBehaviour
     }
     public GameObject Comment(GameObject postGO, Post post, Comment comment)
     { 
+        FindObjectOfType<AudioManager>().Play("notification");
+         
         instantiatedComment = Instantiate(commentPrefab, postParentGO.transform);
 
         instantiatedComment.transform.SetSiblingIndex(postGO.transform.GetSiblingIndex() + 1);
