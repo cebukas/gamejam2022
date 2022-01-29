@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class Feed : MonoBehaviour
 {
     public event EventHandler GameOverEvent;
+    public event EventHandler VictoryEvent;
     
     public GameObject Poster;
     public GameObject Statman;
@@ -38,6 +39,9 @@ public class Feed : MonoBehaviour
     private int _lastQuoteIndex = -1;
     private int _lastPostIndex = -1;
     private int _currentMood = -1;
+
+    private bool outOfPosts = false;
+    private bool outOfComments = false;
 
     public string TimeString { get; set; }
 
@@ -270,6 +274,11 @@ public class Feed : MonoBehaviour
     private void TryPosting()
     {
         var randomPostIndex = PickRandom(PossiblePosts.posts.Except(BlockedPosts).ToList(), _lastPostIndex);
+        if (randomPostIndex == -1)
+        {
+            return;
+        }
+        
         var foundPostByMood = false;
         int index = 0;
         foreach (var post in PossiblePosts.posts)
@@ -342,14 +351,17 @@ public class Feed : MonoBehaviour
 
     private int PickRandom<T>(IReadOnlyCollection<T> objects, int lastIndex)
     {
+        if (objects.Count == 0)
+        {
+            return -1;
+        }
+        
         var rand = Random.Range(0, objects.Count);
-        while (rand == lastIndex)
+        while (rand == lastIndex && objects.Count > 1)
         {
             rand = Random.Range(0, objects.Count);
         }
 
         return rand;
     }
-    
-    
 }
