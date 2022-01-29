@@ -16,7 +16,7 @@ public class StatManager : MonoBehaviour
     public int cryptoKopek, dictatorApproval, foreignAffairs, citizenSupport;
 
     public int PerkStatus = 0;
-    
+
     /*
      * Change our stats by 'change'
      * 'change' can be a negative number as well

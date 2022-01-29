@@ -32,7 +32,6 @@ public class Feed : MonoBehaviour
     private int _lastQuoteIndex = -1;
     private int _lastPostIndex = -1;
     private int _currentMood = -1;
-
     public void StartUpdateFeedRoutine()
     {
         PrepareForEvents();
@@ -273,7 +272,6 @@ public class Feed : MonoBehaviour
         {
             return;
         }
-        Debug.Log("someone is trying to comment");
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
