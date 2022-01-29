@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-using Random = UnityEngine.Random;
-
 
 public class Feed : MonoBehaviour
 {    
@@ -14,7 +12,7 @@ public class Feed : MonoBehaviour
     private const float QuoteDelaySeconds = 20.0f;
     private const float CommentDelaySeconds = 15.0f;
 
-    private const int MaxActivePostCount = 5;
+    private int MaxActivePostCount = 5;
 
     private int uniqueId = 0;
 
@@ -48,48 +46,163 @@ public class Feed : MonoBehaviour
     {
         Interactor.CommentInteractionEvent += InteractorOnCommentInteractionEvent;
         Interactor.PostInteractionEvent += InteractorOnPostInteractionEvent;
+        Interactor.PerkInteractionEvent += InteractorOnPerkInteractionEvent;
     }
 
+    private void InteractorOnPerkInteractionEvent(object sender, PerkInteractionEventArgs e)
+    {
+        if (!Statman.GetComponent<StatManager>().GetPerkStatus(e.Perk)) return;
+        
+        switch (e.Perk)
+        {
+            case PerkEnum.Bribery:
+                Bribe(e.PostId);
+                break;
+            case PerkEnum.Embrace:
+                Embrace(e.PostId);
+                break;
+            case PerkEnum.Reshuffle:
+                Reshuffle();
+                break;
+            case PerkEnum.Wait:
+                Wait();
+                break;
+        }
+    }
+
+    private void Bribe(int postId)
+    {
+        DeletePostByUniqueId(postId);
+    }
+
+    private void Embrace(int postId)
+    {
+        var post = GetPostByUniqueId(postId);
+        post._approved = true;
+        
+        foreach (var statChange in post.statChanges)
+        {
+            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange * 2);
+        }
+    }
+
+    private void Reshuffle()
+    {
+        // bbd
+        TryPosting();
+        TryPosting();
+    }
+
+    private void Wait()
+    {
+        if (MaxActivePostCount < 7)
+        {
+            MaxActivePostCount++;
+        }
+    }
+
+    private Post GetPostByUniqueId(int id)
+    {
+        foreach (var post in Posts)
+        {
+            if (post._uniqueId == id)
+            {
+                return post;
+            }
+        }
+
+        return null;
+    }
+
+    private Comment GetCommentByUniqueId(int id)
+    {
+        foreach (var comment in Comments)
+        {
+            if (comment._uniqueId == id)
+            {
+                return comment;
+            }
+        }
+
+        return null;
+    }
+
+    private void DeletePostByUniqueId(int id)
+    {
+        int index = 0;
+
+        foreach (var post in Posts)
+        {
+            if (post._uniqueId == id)
+            {
+                break;
+            }
+
+            index++;
+        }
+        
+        Posts.RemoveAt(index);
+        InstantiatedPosts.RemoveAt(index);
+    }
+    
+    private void DeleteCommentByUniqueId(int id)
+    {
+        int index = 0;
+
+        foreach (var comment in Comments)
+        {
+            if (comment._uniqueId == id)
+            {
+                break;
+            }
+
+            index++;
+        }
+        
+        Comments.RemoveAt(index);
+        InstantiatedComments.RemoveAt(index);
+    }
+    
     private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
     {
-        var post = Posts[e.objectId];
+        var post = GetPostByUniqueId(e.ObjectId);
 
-        foreach(var statChange in post.statChanges)
+        if (e.Status == 0)
         {
-            if (post._approved)
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
-            else
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
-        }
-        if (e.status == 0)
-        {
-            // Remove this post
-            Posts.RemoveAt(e.objectId);
-            InstantiatedPosts.RemoveAt(e.objectId);
+            // Block this post
             BlockedPosts.Add(post);
         }
         else
         {
-            Posts[e.objectId]._approved = true;
+            post._approved = true;
+            foreach(var statChange in post.statChanges)
+            {
+                if (post._approved)
+                    Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                else
+                    Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+            }
         }
+        
+        DeletePostByUniqueId(e.ObjectId);
     }
 
     private void InteractorOnCommentInteractionEvent(object sender, CommentInteractionEventArgs e)
     {
-        var comment = Comments[e.commentId];
-
-        foreach(var statChange in comment.statChanges)
-        {
-            if (comment._approved)
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
-            else
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+        var comment = GetCommentByUniqueId(e.CommentId);
+        
+        if (e.Status != 0)
+        { 
+            foreach(var statChange in comment.statChanges)
+            {
+                if (comment._approved)
+                    Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                else
+                    Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+            }
         }
-        if (e.status == 0)
-        {
-            Comments.RemoveAt(e.commentId);
-            InstantiatedComments.RemoveAt(e.commentId);
-        }
+        
+        DeleteCommentByUniqueId(e.CommentId);
     }
 
     private void TryChangingQuote()
