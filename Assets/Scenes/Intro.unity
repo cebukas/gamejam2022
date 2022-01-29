@@ -572,14 +572,21 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: a7760b649f6bc43389b4c0bdbfc3f406, type: 3}
-    volume: 0.2
+    volume: 0.15
     pitch: 1
     source: {fileID: 0}
     loop: 0
     isPlaying: 0
   - name: click
     clip: {fileID: 8300000, guid: 73a2b6ee4ad563f49806787ed86a18f0, type: 3}
-    volume: 0.5
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    isPlaying: 0
+  - name: notification
+    clip: {fileID: 8300000, guid: 710152757e8bc497fb48fdd4bade7bbb, type: 3}
+    volume: 0.05
     pitch: 1
     source: {fileID: 0}
     loop: 0
