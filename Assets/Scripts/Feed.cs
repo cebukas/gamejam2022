@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,9 +7,15 @@ using Random = UnityEngine.Random;
 public class Feed : MonoBehaviour
 {    
     public GameObject Poster;
+    public GameObject Statman;
+
     private const float PostDelaySeconds = 10.0f;
-    private const float QuoteDelaySeconds = 5.0f;
+    private const float QuoteDelaySeconds = 20.0f;
     private const float CommentDelaySeconds = 15.0f;
+
+    private const int MaxActivePostCount = 5;
+
+    private int uniqueId = 0;
 
     [SerializeField]
     private DictatorQuotes DictatorQuotes;
@@ -18,18 +25,54 @@ public class Feed : MonoBehaviour
     
     public Quote ActiveQuote;
     public List<Post> Posts;
+    public List<Comment> Comments;
     public List<GameObject> InstantiatedPosts = new List<GameObject>();
     public List<GameObject> InstantiatedComments = new List<GameObject>();
 
     private int _lastQuoteIndex = -1;
     private int _lastPostIndex = -1;
-    
+    private int _currentMood = -1;
 
     public void StartUpdateFeedRoutine()
     {
+        PrepareForEvents();
+        
         InvokeRepeating(nameof(TryChangingQuote), 0, QuoteDelaySeconds);
         InvokeRepeating(nameof(TryPosting), 0, PostDelaySeconds);
         InvokeRepeating(nameof(TryCommenting), 0, CommentDelaySeconds);
+    }
+
+    private void PrepareForEvents()
+    {
+        Interactor.CommentInteractionEvent += InteractorOnCommentInteractionEvent;
+        Interactor.PostInteractionEvent += InteractorOnPostInteractionEvent;
+    }
+
+    private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
+    {
+        var post = Posts[e.objectId];
+        Statman.GetComponent<StatManager>().UpdateStat((Stats)post.statType, post.statChangeValue);
+        if (e.status == 0)
+        {
+            // Remove this post
+            Posts.RemoveAt(e.objectId);
+            InstantiatedPosts.RemoveAt(e.objectId);
+        }
+        else
+        {
+            Posts[e.objectId].approved = true;
+        }
+    }
+
+    private void InteractorOnCommentInteractionEvent(object sender, CommentInteractionEventArgs e)
+    {
+        var comment = Comments[e.commentId];
+        Statman.GetComponent<StatManager>().UpdateStat((Stats)comment.statType, comment.statChangeValue);
+        if (e.status == 0)
+        {
+            Comments.RemoveAt(e.commentId);
+            InstantiatedComments.RemoveAt(e.commentId);
+        }
     }
 
     private void TryChangingQuote()
@@ -38,6 +81,7 @@ public class Feed : MonoBehaviour
         ActiveQuote = DictatorQuotes.quotes[randomQuoteIndex];
 
         _lastQuoteIndex = randomQuoteIndex;
+        _currentMood = ActiveQuote.type;
         
         Poster.GetComponent<Poster>().Quote(ActiveQuote);
         Debug.Log($"{ActiveQuote.type}; {ActiveQuote.statement}");
@@ -46,13 +90,49 @@ public class Feed : MonoBehaviour
     private void TryPosting()
     {
         var randomPostIndex = PickRandom(PossiblePosts.posts, _lastPostIndex);
-        Posts.Add(PossiblePosts.posts[randomPostIndex]);
-        _lastPostIndex = randomPostIndex;
 
-        GameObject instantiatedPost = Poster.GetComponent<Poster>().Post(Posts[Posts.Count-1]);
-        InstantiatedPosts.Add(instantiatedPost);
+        var foundPostByMood = false;
+        int index = 0;
+        foreach (var post in PossiblePosts.posts)
+        {
+            if (post.postType == _currentMood)
+            {
+                foundPostByMood = true;
+            }
 
-        Debug.Log($"{Posts[Posts.Count-1].postContent}");
+            if (foundPostByMood || index >= PossiblePosts.posts.Count)
+            {
+                break;
+            }
+
+            index++;
+        }
+
+        if (foundPostByMood)
+        {
+            var newPost = PossiblePosts.posts[randomPostIndex];
+            newPost.uniqueId = uniqueId;
+            newPost.approved = false;
+            uniqueId++;
+
+            if (Posts.Count > MaxActivePostCount)
+            {
+                Posts.RemoveAt(0);
+                InstantiatedPosts.RemoveAt(0);
+            }
+            
+            Posts.Add(newPost);
+            _lastPostIndex = randomPostIndex;
+
+            GameObject instantiatedPost = Poster.GetComponent<Poster>().Post(Posts[Posts.Count - 1]);
+            InstantiatedPosts.Add(instantiatedPost);
+            
+            Debug.Log($"{Posts[Posts.Count - 1].postContent}");
+        }
+        else
+        {
+            Debug.Log("No posts to match dictator's mood");
+        }
     }
 
     private void TryCommenting()
@@ -63,8 +143,14 @@ public class Feed : MonoBehaviour
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
 
-       GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], Posts[randomPost].possibleComments[randomComment]);
-       InstantiatedComments.Add(instantiatedComment);
+        var newComment = Posts[randomPost].possibleComments[randomComment];
+        newComment.uniqueId = uniqueId;
+        uniqueId++;
+        
+        Comments.Add(newComment);
+        
+        GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], newComment);
+        InstantiatedComments.Add(instantiatedComment);
 
         Debug.Log($"{Posts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{Posts[randomPost].possibleComments[randomComment].comment}' " +
                   $" under {Posts[randomPost].postContent}");
