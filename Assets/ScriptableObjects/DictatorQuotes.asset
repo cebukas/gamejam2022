@@ -14,6 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quotes:
   - type: 1
-    statement: I am very angry at fake news
-  - type: 1
-    statement: i am very angry at communists
+    statement: "Grannies say that youngsters forgot about the war\u2026"
+  - type: 2
+    statement: Economy is the uttermost important!
+  - type: 3
+    statement: The Supreme Ruler is on a purge!!!
+  - type: 4
+    statement: Our nation has friendly aspirations.
+  - type: 5
+    statement: "Let\u2019s celebrate the National Day with a feast! (Peasants not
+      included)."
+  - type: 6
+    statement: The supreme ruler won the election by 99%.
+  - type: 7
+    statement: Our nation is the #1 in the world.
+
