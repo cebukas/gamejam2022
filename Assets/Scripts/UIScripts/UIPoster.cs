@@ -22,11 +22,15 @@ public class UIPoster : MonoBehaviour
 
         this.transform.SetSiblingIndex(100); // goes to the back, need to rework
 
+        Destroy(this.transform.Find("Buttons").gameObject);
+
         Interactor.PostApprove(post._uniqueId);
     }
     public void onDisapproveClick()
     {
         FindObjectOfType<AudioManager>().Play("click"); 
+        
+
 
         Interactor.PostDiscard(post._uniqueId);
     }

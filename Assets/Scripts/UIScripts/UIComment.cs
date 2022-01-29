@@ -29,6 +29,8 @@ public class UIComment : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("click"); 
 
+        Destroy(this.transform.Find("Buttons").gameObject);
+
         Interactor.CommentDiscard(post._uniqueId, comment._uniqueId);
     }
     public void onPostEmbrace()
