@@ -47,4 +47,27 @@ public class Interactor
     {
         CommentInteractionEvent?.Invoke(null, new CommentInteractionEventArgs() {status = 2, postId = postId, commentId = commentId});
     }
+    public static Stats StatCaster(string stat)
+    {
+        stat = stat.ToLower();
+        
+        if (stat == "crypto")
+        {
+            return Stats.CryptoKopek;
+        }
+        if (stat == "citizen")
+        {
+            return Stats.CitizenSupport;
+        }
+        if (stat == "dictator")
+        {
+            return Stats.DictatorApproval;
+        }
+        if (stat == "foreign")
+        {
+            return Stats.ForeignAffairs;
+        }
+        else throw new Exception();
+    }
 }
+

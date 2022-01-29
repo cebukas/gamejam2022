@@ -57,9 +57,9 @@ public class Feed : MonoBehaviour
         foreach(var statChange in post.statChanges)
         {
             if (post._approved)
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
             else
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+                Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
         }
         if (e.status == 0)
         {
@@ -81,9 +81,9 @@ public class Feed : MonoBehaviour
         foreach(var statChange in comment.statChanges)
         {
             if (comment._approved)
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
             else
-                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+                Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
         }
         if (e.status == 0)
         {

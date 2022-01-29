@@ -12,3 +12,4 @@ public enum QuoteMood
     Happy = 1 << 1,
     //TODO: 
 }
+
