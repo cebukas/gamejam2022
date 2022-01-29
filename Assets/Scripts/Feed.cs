@@ -51,7 +51,14 @@ public class Feed : MonoBehaviour
     private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
     {
         var post = Posts[e.objectId];
-        Statman.GetComponent<StatManager>().UpdateStat((Stats)post.statType, post.statChangeValue);
+
+        foreach(var statChange in post.statChanges)
+        {
+            if (post._approved)
+                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+            else
+                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+        }
         if (e.status == 0)
         {
             // Remove this post
@@ -60,14 +67,21 @@ public class Feed : MonoBehaviour
         }
         else
         {
-            Posts[e.objectId].approved = true;
+            Posts[e.objectId]._approved = true;
         }
     }
 
     private void InteractorOnCommentInteractionEvent(object sender, CommentInteractionEventArgs e)
     {
         var comment = Comments[e.commentId];
-        Statman.GetComponent<StatManager>().UpdateStat((Stats)comment.statType, comment.statChangeValue);
+
+        foreach(var statChange in comment.statChanges)
+        {
+            if (comment._approved)
+                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+            else
+                Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+        }
         if (e.status == 0)
         {
             Comments.RemoveAt(e.commentId);
@@ -111,8 +125,8 @@ public class Feed : MonoBehaviour
         if (foundPostByMood)
         {
             var newPost = PossiblePosts.posts[randomPostIndex];
-            newPost.uniqueId = uniqueId;
-            newPost.approved = false;
+            newPost._uniqueId = uniqueId;
+            newPost._approved = false;
             uniqueId++;
 
             if (Posts.Count > MaxActivePostCount)
@@ -144,7 +158,7 @@ public class Feed : MonoBehaviour
         // comment
 
         var newComment = Posts[randomPost].possibleComments[randomComment];
-        newComment.uniqueId = uniqueId;
+        newComment._uniqueId = uniqueId;
         uniqueId++;
         
         Comments.Add(newComment);
