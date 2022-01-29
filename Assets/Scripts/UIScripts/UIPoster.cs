@@ -29,8 +29,6 @@ public class UIPoster : MonoBehaviour
     public void onDisapproveClick()
     {
         FindObjectOfType<AudioManager>().Play("click"); 
-        
-
 
         Interactor.PostDiscard(post._uniqueId);
     }
