@@ -15,11 +15,13 @@ public class Post
     public string user;
     public int postType; // correlates with quote type -- if quote is angery -- make angery posts
     public string postContent;
-    public int statType; // What kind of stat post is changing
-    public int statChangeValue; // how much of a stat is changed
+
+    public StatChange[] statChanges;
     public Comment[] possibleComments;
-    public int uniqueId;
-    public bool approved;
+    [HideInInspector]
+    public int _uniqueId;
+    [HideInInspector]
+    public bool _approved;
 }
 
 [Serializable]
@@ -27,7 +29,17 @@ public class Comment
 {
     public string commentingGroup;
     public string comment;
-    public int statType; // What kind of stats are changed by this comment
-    public int statChangeValue; // How strong is the stat change
-    public int uniqueId;
+    public StatChange[] statChanges;
+    public int _uniqueId;
+    public bool _approved;
+}
+
+[Serializable]
+public class StatChange
+{
+    public string statType;
+
+    public int approvalStatChange;
+
+    public int disapprovalStatChange;
 }
