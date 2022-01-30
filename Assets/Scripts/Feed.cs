@@ -95,6 +95,13 @@ public class Feed : MonoBehaviour
         Interactor.PerkInteractionEvent += InteractorOnPerkInteractionEvent;
     }
 
+    private void OnDestroy()
+    {
+        Interactor.CommentInteractionEvent -= InteractorOnCommentInteractionEvent;
+        Interactor.PostInteractionEvent -= InteractorOnPostInteractionEvent;
+        Interactor.PerkInteractionEvent -= InteractorOnPerkInteractionEvent;
+    }
+
     private void InteractorOnPerkInteractionEvent(object sender, PerkInteractionEventArgs e)
     {
         if (!Statman.GetComponent<StatManager>().GetPerkStatus(e.Perk)) return;
