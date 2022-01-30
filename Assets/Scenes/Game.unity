@@ -966,7 +966,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1439612876}
   m_HandleRect: {fileID: 1439612875}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2075,6 +2075,7 @@ GameObject:
   - component: {fileID: 1081175957}
   - component: {fileID: 1081175959}
   - component: {fileID: 1081175958}
+  - component: {fileID: 1081175960}
   m_Layer: 0
   m_Name: Value
   m_TagString: Untagged
@@ -2198,6 +2199,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081175956}
   m_CullTransparentMesh: 1
+--- !u!114 &1081175960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081175956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917f4d20c6b56fb46bdf44bd03965c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationsTMP: {fileID: 1081175958}
 --- !u!1 &1092472379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,6 +3299,10 @@ PrefabInstance:
       propertyPath: Statman
       value: 
       objectReference: {fileID: 871140541}
+    - target: {fileID: 7820420933706665763, guid: d78424a83071c664d93d1e7be2071ea6, type: 3}
+      propertyPath: uiNotifications
+      value: 
+      objectReference: {fileID: 1081175960}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78424a83071c664d93d1e7be2071ea6, type: 3}
 --- !u!1 &1931133779 stripped
