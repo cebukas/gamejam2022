@@ -49,6 +49,18 @@ public class Feed : MonoBehaviour
     
     public string TimeString { get; set; }
 
+    private GameObject emptyState;
+
+    private void Start()
+    {
+        emptyState = FindObjectOfType<EmptyState>().gameObject;
+    }
+
+    private void setEmptyStateEnabled()
+    {
+        emptyState.SetActive(!Posts.Any() && !Comments.Any());
+    }
+
     public void StartUpdateFeedRoutine()
     {
         PrepareForEvents();
@@ -169,6 +181,7 @@ public class Feed : MonoBehaviour
         Posts.RemoveAt(index);
         Destroy(InstantiatedPosts[index]);
         InstantiatedPosts.RemoveAt(index);
+        setEmptyStateEnabled();
     }
     
     private void DeleteCommentByUniqueId(int id)
@@ -188,6 +201,7 @@ public class Feed : MonoBehaviour
         Comments.RemoveAt(index);
         Destroy(InstantiatedComments[index]);
         InstantiatedComments.RemoveAt(index);
+        setEmptyStateEnabled();
     }
     
     private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
@@ -342,6 +356,8 @@ public class Feed : MonoBehaviour
         {
             Debug.Log("No posts to match dictator's mood");
         }
+
+        setEmptyStateEnabled();
     }
 
     private bool CheckIfSuchCommentWasMade(Comment comment)
