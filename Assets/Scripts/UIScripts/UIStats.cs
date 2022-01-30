@@ -7,10 +7,9 @@ public class UIStats : MonoBehaviour
 
 
     public void updateStats(int crypto, int dictator, int citizen, int foreign){
-        Debug.Log("UPDATE STATS GOT CALLED LYAT");
-        this.crypto.text = crypto.ToString();
-        this.dictator.text = dictator.ToString();
-        this.citizen.text = citizen.ToString();
-        this.foreign.text = foreign.ToString();
+        this.crypto.text = string.Format("{0:000}", crypto);
+        this.dictator.text = string.Format("{0:000}", dictator);
+        this.citizen.text = string.Format("{0:000}", citizen);
+        this.foreign.text = string.Format("{0:000}", foreign);
     }
 }
