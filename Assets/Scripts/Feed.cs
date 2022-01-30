@@ -31,6 +31,11 @@ public class Feed : MonoBehaviour
     private PostData PossiblePosts;
     
     public Quote ActiveQuote;
+
+    public List<Post> LifeTimePosts;
+    public List<Comment> LifeTimeComments;
+    
+    
     public List<Post> Posts;
     public List<Post> BlockedPosts;
     public List<Comment> Comments;
@@ -68,6 +73,9 @@ public class Feed : MonoBehaviour
         PrepareForEvents();
 
         _sceneController = FindObjectOfType<SceneController>();
+
+        LifeTimeComments = new List<Comment>();
+        LifeTimePosts = new List<Post>();
         
         _allCommentCount = GetAllCommentCount();
         
@@ -359,6 +367,7 @@ public class Feed : MonoBehaviour
             }
             
             Posts.Add(newPost);
+            LifeTimePosts.Add(newPost);
             _lastPostIndex = randomPostIndex;
 
             GameObject instantiatedPost = Poster.GetComponent<Poster>().Post(Posts[Posts.Count - 1]);
@@ -408,7 +417,7 @@ public class Feed : MonoBehaviour
 
     private bool CheckIfSuchPostWasMade(Post post)
     {
-        foreach (var p in Posts)
+        foreach (var p in LifeTimePosts)
         {
             if (p.postContent.Equals(post.postContent))
             {
@@ -484,6 +493,7 @@ public class Feed : MonoBehaviour
         newComment._uniqueId = uniqueId;
         uniqueId++;
         Comments.Add(newComment);
+        LifeTimeComments.Add(newComment);
         GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], Posts[randomPost], newComment);
         InstantiatedComments.Add(instantiatedComment);
         

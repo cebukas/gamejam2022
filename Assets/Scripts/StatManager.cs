@@ -20,10 +20,10 @@ public class StatManager : MonoBehaviour
 
     private void Start()
     {
-        cryptoKopek = 150;
+        cryptoKopek = 50;
         dictatorApproval = 50;
         citizenSupport = 50;
-        foreignAffairs = 150;
+        foreignAffairs = 50;
         
         UpdateStat(Stats.CitizenSupport, 0);
     }
