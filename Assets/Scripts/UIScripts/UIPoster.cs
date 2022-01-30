@@ -18,7 +18,7 @@ public class UIPoster : MonoBehaviour
 
     public void onApproveClick()
     {
-        FindObjectOfType<AudioManager>().Play("click"); 
+        FindObjectOfType<AudioManager>().Play("approve"); 
 
         this.transform.SetSiblingIndex(this.transform.parent.gameObject.transform.Find("Official News Box").GetSiblingIndex());
         
@@ -28,7 +28,7 @@ public class UIPoster : MonoBehaviour
     }
     public void onDisapproveClick()
     {
-        FindObjectOfType<AudioManager>().Play("click"); 
+        FindObjectOfType<AudioManager>().Play("decline"); 
 
         Interactor.PostDiscard(post._uniqueId);
     }

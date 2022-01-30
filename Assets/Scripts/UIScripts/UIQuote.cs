@@ -10,5 +10,7 @@ public class UIQuote : MonoBehaviour
 
         TMP_Text quoteMPComponent = GetComponentInChildren<TMP_Text>();
         quoteMPComponent.text = quote.statement;
+
+        FindObjectOfType<AudioManager>().Play("storychange"); 
     }
 }
