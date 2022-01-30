@@ -228,32 +228,33 @@ public class Feed : MonoBehaviour
     
     private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
     {
-
         var post = GetPostByUniqueId(e.ObjectId);
 
-        if (e.Status == 0)
-        {
-            // Delete this post immediately
-            DeletePostByUniqueId(e.ObjectId);
-        }
-        else
+        if (e.Status != 0)
         {
             post._approved = true;
-            if(post.statChanges != null)
+        }
+
+        if(post.statChanges != null)
+        {
+            foreach(var statChange in post.statChanges)
             {
-                foreach(var statChange in post.statChanges)
+                if(statChange.statType != 0)
                 {
-                    if(statChange.statType != 0)
-                    {
-                        if (post._approved){
-                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
-                        }
-                        else
-                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+                    if (post._approved){
+                        Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
                     }
+                    else
+                        Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
                 }
             }
         }
+
+        if (e.Status == 0)
+        {
+            DeletePostByUniqueId(e.ObjectId);
+        }
+       
         BlockedPosts.Add(post); // make sure this post won't reappear
     }
 
@@ -269,21 +270,23 @@ public class Feed : MonoBehaviour
         if (e.Status != 0)
         {
             comment._approved = true;
-            if(comment.statChanges != null)
+        }
+        
+        if(comment.statChanges != null)
+        {
+            foreach(var statChange in comment.statChanges)
             {
-                foreach(var statChange in comment.statChanges)
+                if(statChange.statType != 0)
                 {
-                    if(statChange.statType != 0)
-                    {
-                        if (comment._approved)
-                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
-                        else
-                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
-                    }
+                    if (comment._approved)
+                        Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                    else
+                        Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
                 }
             }
         }
-        else
+
+        if (e.Status == 0)
         {
             DeleteCommentByUniqueId(e.CommentId);
         }
