@@ -23,7 +23,7 @@ public class UIComment : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("click"); 
 
-        Destroy(this.transform.Find("Buttons").gameObject);
+        this.transform.Find("Image").gameObject.transform.Find("Buttons").gameObject.SetActive(false);
 
         Interactor.CommentApprove(post._uniqueId, comment._uniqueId);
     }
