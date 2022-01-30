@@ -76,15 +76,19 @@ public class Feed : MonoBehaviour
         switch (e.Perk)
         {
             case PerkEnum.Bribery:
+                Debug.Log("bribin'");
                 Bribe(e.PostId);
                 break;
             case PerkEnum.Embrace:
+                Debug.Log("embracin'");
                 Embrace(e.PostId);
                 break;
             case PerkEnum.Reshuffle:
+                Debug.Log("reshufflin'");
                 Reshuffle();
                 break;
             case PerkEnum.Wait:
+                Debug.Log("waitin'");
                 Wait();
                 break;
         }
@@ -409,8 +413,17 @@ public class Feed : MonoBehaviour
         {
             return;
         }
+
+        var newComment = new Comment();
         
-        var newComment = Posts[randomPost].possibleComments[randomComment];
+        try
+        {
+            newComment = Posts[randomPost].possibleComments[randomComment];
+        }
+        catch (Exception e)
+        {
+            return;
+        }
 
         if (CheckIfSuchCommentWasMade(newComment))
         {
