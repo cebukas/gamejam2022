@@ -605,3 +605,703 @@ MonoBehaviour:
       _approved: 0
     _uniqueId: 0
     _approved: 0
+  - user: '@League of Evil'
+    postType: 4
+    postContent: Many nations want to see your beautiful country.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: We don't.
+      statChanges:
+      - statType: 4
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Western Alliance'
+    postType: 4
+    postContent: League of Evil is... yea, just basically EVIL.
+    statChanges:
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 4
+      approvalStatChange: -15
+      disapprovalStatChange: 5
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: DOPE!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      - statType: 4
+        approvalStatChange: 10
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Peasants Daily'
+    postType: 4
+    postContent: 0 medals won in the EVILympics.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 0
+    - statType: 2
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 4
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 8
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    possibleComments:
+    - commentingGroup: '@USER256819'
+      comment: First food, then medals...
+      statChanges:
+      - statType: 2
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      - statType: 8
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 4
+    postContent: Western Alliance is investing in our glorious nation.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 15
+      disapprovalStatChange: -10
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 5
+    - statType: 4
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@League of Evil'
+      comment: NOOOOO!
+      statChanges:
+      - statType: 4
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@USER256819'
+      comment: Oh sweet dreams of hamburgers...
+      statChanges:
+      - statType: 2
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      - statType: 8
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@H4XER$ UNITED'
+    postType: 4
+    postContent: Ransomware atack on the Western Alliance was successful.
+    statChanges:
+    - statType: 4
+      approvalStatChange: -20
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@Crypto Kopek'
+      comment: Crypto Kopek fell by 20%
+      statChanges:
+      - statType: 1
+        approvalStatChange: -20
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@USER256819'
+    postType: 4
+    postContent: We BEG you! Do not forget to feed your own people!
+    statChanges:
+    - statType: 4
+      approvalStatChange: 10
+      disapprovalStatChange: -5
+    - statType: 8
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: "\xAF\\_(++)_/\xAF"
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      - statType: 8
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 5
+    postContent: Oh, how I want some hot coffee...
+    statChanges:
+    - statType: 2
+      approvalStatChange: 8
+      disapprovalStatChange: -8
+    - statType: 8
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    possibleComments:
+    - commentingGroup: H4XER$
+      comment: Go to San Andreas.
+      statChanges:
+      - statType: 8
+        approvalStatChange: 10
+        disapprovalStatChange: -4
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: Citizens Militia
+      comment: And we want freedom.
+      statChanges:
+      - statType: 2
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      - statType: 8
+        approvalStatChange: 15
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 5
+    postContent: No vegetarian meals in this country!
+    statChanges:
+    - statType: 1
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    - statType: 2
+      approvalStatChange: 5
+      disapprovalStatChange: -5
+    - statType: 8
+      approvalStatChange: -5
+      disapprovalStatChange: 5
+    possibleComments:
+    - commentingGroup: '@Krypto Kopek'
+      comment: Krypto Kopek fell by 20%
+      statChanges:
+      - statType: 1
+        approvalStatChange: -20
+        disapprovalStatChange: 5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@League of Evil'
+    postType: 5
+    postContent: Our glorious league has gifted 100 cows to celebrate the national
+      day.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: -15
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Youm, youm!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@USER256819'
+      comment: Please, just let us have some.
+      statChanges:
+      - statType: 8
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Citizens militia'
+    postType: 5
+    postContent: Citizens are constantly sick.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 5
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 5
+    - statType: 8
+      approvalStatChange: 15
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Just shut it, OK?!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@USER256819'
+      comment: And dying!
+      statChanges:
+      - statType: 8
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Citizens Militia'
+    postType: 5
+    postContent: Uprising is coming, "Ruler".
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: TRY IT!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      - statType: 8
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Peasants Daily'
+    postType: 5
+    postContent: Mr. Supreme congratulates with national day by exploding a dam.
+    statChanges:
+    - statType: 2
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@League of Evil'
+      comment: BOOM BABY!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@Crypto Kopek'
+      comment: Crypto kopek fell by 20%
+      statChanges:
+      - statType: 1
+        approvalStatChange: -20
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@USER256819'
+    postType: 5
+    postContent: SOS! We are starving here!
+    statChanges:
+    - statType: 8
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@Krypto Kopek'
+      comment: Krypto Kopek fell by 30%
+      statChanges:
+      - statType: 1
+        approvalStatChange: -30
+        disapprovalStatChange: 15
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@USER256819'
+    postType: 5
+    postContent: Please, please, just give us some food.
+    statChanges:
+    - statType: 8
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@Crypto Kopek'
+      comment: Crypto Kopek fell by 40%
+      statChanges:
+      - statType: 1
+        approvalStatChange: -40
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@Western Alliance'
+      comment: Abuse of human rights!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 10
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 5
+    postContent: 1M Crypto Kopek spent for the dinner of the Supreme Ruler.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -50
+      disapprovalStatChange: 0
+    - statType: 2
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: -20
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@League of Evil'
+      comment: Classy!
+      statChanges:
+      - statType: 4
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Evil League'
+    postType: 6
+    postContent: Congratulations with assured win, Supreme Ruler.
+    statChanges:
+    - statType: 2
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: -15
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Thx, comrades!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      - statType: 4
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Peasants Daily'
+    postType: 6
+    postContent: The Supreme leader won by 89%.
+    statChanges:
+    - statType: 2
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 4
+      approvalStatChange: -20
+      disapprovalStatChange: 20
+    - statType: 8
+      approvalStatChange: -30
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@The Supreme Leader'
+      comment: 99!!!!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      - statType: 4
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      - statType: 8
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 6
+    postContent: Crypto Kopek is falling after fraudulent elections.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -30
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: False facts.
+      statChanges:
+      - statType: 1
+        approvalStatChange: 40
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@H4XER$ UNITED'
+    postType: 6
+    postContent: We have interfered in the election.
+    statChanges:
+    - statType: 4
+      approvalStatChange: -15
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Fake news.
+      statChanges:
+      - statType: 2
+        approvalStatChange: 15
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 6
+    postContent: I AM THE KING!
+    statChanges:
+    - statType: 2
+      approvalStatChange: 30
+      disapprovalStatChange: -20
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: -30
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@USER256819'
+      comment: King of the beggars.
+      statChanges:
+      - statType: 2
+        approvalStatChange: -20
+        disapprovalStatChange: 20
+      - statType: 8
+        approvalStatChange: 20
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Citizens Militia'
+    postType: 6
+    postContent: 64% supported the jailed candidate.
+    statChanges:
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 4
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: World has to know this!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 15
+        disapprovalStatChange: -15
+      - statType: 2
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 7
+    postContent: Change the capital name to the SUPREMIA!
+    statChanges:
+    - statType: 2
+      approvalStatChange: 20
+      disapprovalStatChange: -20
+    - statType: 8
+      approvalStatChange: -15
+      disapprovalStatChange: 15
+    possibleComments:
+    - commentingGroup: '@The Peasants Daily'
+      comment: The new era has begun!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      - statType: 8
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Peasants Daily'
+    postType: 7
+    postContent: The Supreme Ruler announces a new space programe to land humans
+      on the sun.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -20
+      disapprovalStatChange: 0
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: -30
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: We wish you a nice trip.
+      statChanges:
+      - statType: 4
+        approvalStatChange: -20
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@USER256819'
+    postType: 7
+    postContent: We have no shoes...
+    statChanges:
+    - statType: 8
+      approvalStatChange: 20
+      disapprovalStatChange: -15
+    - statType: 4
+      approvalStatChange: 10
+      disapprovalStatChange: -15
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: Help is on the way!
+      statChanges:
+      - statType: 1
+        approvalStatChange: 20
+        disapprovalStatChange: -10
+      - statType: 4
+        approvalStatChange: 20
+        disapprovalStatChange: -10
+      - statType: 8
+        approvalStatChange: 20
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@USER256819'
+    postType: 7
+    postContent: We are the poorest nation in the world.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 0
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@Citizen Militia'
+      comment: RESIST!
+      statChanges:
+      - statType: 2
+        approvalStatChange: -10
+        disapprovalStatChange: 10
+      - statType: 8
+        approvalStatChange: 10
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 7
+    postContent: Crypto Kopek is the best of the worst currencies to invest in.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -30
+      disapprovalStatChange: 20
+    - statType: 4
+      approvalStatChange: -15
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Crypto Kopek to the moon!
+      statChanges:
+      - statType: 1
+        approvalStatChange: 40
+        disapprovalStatChange: -20
+      - statType: 2
+        approvalStatChange: 20
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@Crypto Kopek'
+      comment: Crypto Kopek fell 10%.
+      statChanges:
+      - statType: 1
+        approvalStatChange: -10
+        disapprovalStatChange: 0
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@H4XER$ UNITED'
+    postType: 7
+    postContent: Our skilzz are the top $$$, baby.
+    statChanges:
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: 20
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@The Evil League'
+      comment: Let's talk in PM.
+      statChanges:
+      - statType: 4
+        approvalStatChange: 15
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
