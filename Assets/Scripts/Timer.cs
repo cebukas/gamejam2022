@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Core;
+using UnityEditor;
 
 namespace UI
 {
@@ -16,6 +17,9 @@ namespace UI
         [SerializeField]
         private int initialSeconds = 0;
 
+        [SerializeField]
+        private GameObject Statman;
+        
         private float timeRemaining;
         private bool timerIsRunning = false;
         private SceneController sceneController;
@@ -41,10 +45,24 @@ namespace UI
                 timeRemaining = 0;
                 UpdateText();
                 timerIsRunning = false;
-                sceneController.LoadScene(Scene.GameOver);
+                CallGameEndByTimeout();
             }
         }
 
+        private void CallGameEndByTimeout()
+        {
+            if (!Statman.GetComponent<StatManager>().CheckStatStatus())
+            {
+                Debug.Log("Game over");
+                sceneController.LoadScene(Scene.GameOver);
+            }
+            else
+            {
+                Debug.Log("Game won!");
+                sceneController.LoadScene(Scene.GameWon);
+            }
+        }
+        
         private int getInitialTime()
         {
             return initialMins * 60 + initialSeconds;
