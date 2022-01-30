@@ -8,4 +8,9 @@ public class GameManager : MonoBehaviour
     {
         MainFeed.GetComponent<Feed>().StartUpdateFeedRoutine();
     }
+
+    public static void ExitGame()
+    {
+        Application.Quit();
+    }
 }
