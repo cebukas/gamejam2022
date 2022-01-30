@@ -7,6 +7,7 @@ public class LayoutRefresher : MonoBehaviour
 {
     private VerticalLayoutGroup group;
     private Scrollbar scrollbar;
+    private float currentValue;
     private void Start()
     {
         group = GetComponent<VerticalLayoutGroup>();
@@ -15,10 +16,11 @@ public class LayoutRefresher : MonoBehaviour
     
     public IEnumerator UpdateLayoutGroup()
     {
+        currentValue = scrollbar.value;
         group.enabled = false;
         yield return new WaitForEndOfFrame();
         group.enabled = true;
         yield return new WaitForEndOfFrame();
-        scrollbar.value = 1f;
+        scrollbar.value = currentValue;
     }
 }
