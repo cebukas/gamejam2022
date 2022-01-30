@@ -21,7 +21,7 @@ public class UIComment : MonoBehaviour
 
     public void onApproveClick()
     {
-        FindObjectOfType<AudioManager>().Play("click"); 
+        FindObjectOfType<AudioManager>().Play("approve"); 
 
         this.transform.Find("Image").gameObject.transform.Find("Buttons").gameObject.SetActive(false);
 
@@ -29,7 +29,7 @@ public class UIComment : MonoBehaviour
     }
     public void onDisapproveClick()
     {
-        FindObjectOfType<AudioManager>().Play("click"); 
+        FindObjectOfType<AudioManager>().Play("decline"); 
 
         Interactor.CommentDiscard(post._uniqueId, comment._uniqueId);
     }
