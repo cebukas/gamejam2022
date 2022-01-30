@@ -808,8 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 623773242}
-  initialMins: 1
-  initialSeconds: 16
+  initialMins: 0
+  initialSeconds: 20
   Statman: {fileID: 871140541}
 --- !u!1 &264851990
 GameObject:
