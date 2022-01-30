@@ -10,10 +10,6 @@ namespace Intro
     {
         [SerializeField]
         private TMP_InputField inputTMP;
-        [SerializeField]
-        private Settings settings;
-        [SerializeField]
-        private SceneController sceneController;
 
         private void Start()
         {
@@ -25,16 +21,6 @@ namespace Intro
             FindObjectOfType<AudioManager>().Play("click"); 
             inputTMP.text = null;
             focusInput();
-        }
-
-        public void LoadGameIfPossible()
-        {
-            FindObjectOfType<AudioManager>().Play("click"); 
-            var text = inputTMP.text;
-            if(string.IsNullOrWhiteSpace(text)) return;
-
-            settings.country = text;
-            sceneController.LoadScene(Scene.Game);
         }
 
         private void focusInput()
