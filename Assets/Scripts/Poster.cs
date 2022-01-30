@@ -36,9 +36,10 @@ public class Poster : MonoBehaviour
     { 
         FindObjectOfType<AudioManager>().Play("notification");
 
-        instantiatedComment = Instantiate(commentPrefab, postParentGO.transform);
+        //instantiatedComment = Instantiate(commentPrefab, postParentGO.transform);
+        instantiatedComment = Instantiate(commentPrefab, postGO.transform.GetChild(1).transform);
 
-        instantiatedComment.transform.SetSiblingIndex(postGO.transform.GetSiblingIndex() + 1);
+        //instantiatedComment.transform.SetSiblingIndex(postGO.transform.GetSiblingIndex() + 1);
 
         instantiatedComment.GetComponent<UIComment>().UpdateFields(post, comment);
 
