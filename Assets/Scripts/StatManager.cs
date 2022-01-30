@@ -17,6 +17,7 @@ public class StatManager : MonoBehaviour
     public GameObject statGO;
     public int PerkStatus = 0;
 
+    private bool isCryptoKopekUp, isDictatorApprovalUp, isForeignAffairsUp, isCitizenSupportUp;
 
     private void Start()
     {
@@ -24,6 +25,11 @@ public class StatManager : MonoBehaviour
         dictatorApproval = 50;
         citizenSupport = 50;
         foreignAffairs = 50;
+
+        isCryptoKopekUp = true;
+        isDictatorApprovalUp = true;
+        isCitizenSupportUp = true;
+        isForeignAffairsUp = true;
         
         UpdateStat(Stats.CitizenSupport, 0);
     }
@@ -38,21 +44,29 @@ public class StatManager : MonoBehaviour
         switch (stat)
         {
             case Stats.CitizenSupport:
+                isCitizenSupportUp = IsUp(change);
                 citizenSupport += change;
                 break;
             case Stats.CryptoKopek:
+                isCryptoKopekUp = IsUp(change);
                 cryptoKopek += change;
                 break;
             case Stats.DictatorApproval:
+                isDictatorApprovalUp = IsUp(change);
                 dictatorApproval += change;
                 break;
             case Stats.ForeignAffairs:
+                isForeignAffairsUp = IsUp(change);
                 foreignAffairs += change;
                 break;
         }
-        statGO.GetComponent<UIStats>().updateStats(cryptoKopek, dictatorApproval, citizenSupport, foreignAffairs);
+        var uiStats = statGO.GetComponent<UIStats>();
+        uiStats.updateStats(cryptoKopek, dictatorApproval, citizenSupport, foreignAffairs);
+        uiStats.updateIndicator(isCryptoKopekUp, isDictatorApprovalUp, isCitizenSupportUp, isForeignAffairsUp);
         CheckForPerks();
     }
+
+    private bool IsUp(int value) => value >= 0;
 
     // returns true if specific perk is available
     public bool GetPerkStatus(PerkEnum perkEnum)

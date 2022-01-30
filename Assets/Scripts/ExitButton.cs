@@ -10,8 +10,8 @@ namespace UI
 
         private void Start()
         {
-            var restartButton = GetComponent<Button>();
-            restartButton.onClick.AddListener(ExitGame);
+            var quitButton = GetComponent<Button>();
+            quitButton.onClick.AddListener(ExitGame);
         }
 
         private void ExitGame()
