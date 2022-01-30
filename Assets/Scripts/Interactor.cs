@@ -59,27 +59,5 @@ public class Interactor
     {
         PerkInteractionEvent?.Invoke(null, new PerkInteractionEventArgs(){Perk = perk, PostId = postId});
     }
-    public static Stats StatCaster(string stat)
-    {
-        stat = stat.ToLower();
-        
-        if (stat == "crypto")
-        {
-            return Stats.CryptoKopek;
-        }
-        if (stat == "citizen")
-        {
-            return Stats.CitizenSupport;
-        }
-        if (stat == "dictator")
-        {
-            return Stats.DictatorApproval;
-        }
-        if (stat == "foreign")
-        {
-            return Stats.ForeignAffairs;
-        }
-        else throw new Exception();
-    }
 }
 
