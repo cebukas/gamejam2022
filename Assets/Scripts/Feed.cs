@@ -18,6 +18,7 @@ public class Feed : MonoBehaviour
     private const float QuoteDelaySeconds = 20.0f;
     private const float CommentDelaySeconds = 15.0f;
     private const float DayDuration = 300.0f; // 5 minutes
+    private const int IterationCountAfterPostingDone = 3; // let's wait 3 more post iteration before calling victory (assuming we'll have enough stats)
     
     private int MaxActivePostCount = 5;
 
@@ -39,10 +40,13 @@ public class Feed : MonoBehaviour
     private int _lastQuoteIndex = -1;
     private int _lastPostIndex = -1;
     private int _currentMood = -1;
-
+    private int _currentOutOfPostIteration = -1;
+    
     private bool outOfPosts = false;
     private bool outOfComments = false;
 
+    private int _allCommentCount;
+    
     public string TimeString { get; set; }
 
     public void StartUpdateFeedRoutine()
@@ -50,6 +54,8 @@ public class Feed : MonoBehaviour
         PrepareForEvents();
         UpdateTimeString();
 
+        _allCommentCount = GetAllCommentCount();
+        
         InvokeRepeating(nameof(TryChangingQuote), 0, QuoteDelaySeconds);
         InvokeRepeating(nameof(TryPosting), 0, PostDelaySeconds);
         InvokeRepeating(nameof(TryCommenting), 0, CommentDelaySeconds);
@@ -76,12 +82,13 @@ public class Feed : MonoBehaviour
     
     private void DayUpdate()
     {
+        /*
         Debug.Log("Day results! Printing stats:");
         Debug.Log($"Money: {Statman.GetComponent<StatManager>().cryptoKopek}");
         Debug.Log($"Dictator approval: {Statman.GetComponent<StatManager>().dictatorApproval}");
         Debug.Log($"Citizen support: {Statman.GetComponent<StatManager>().citizenSupport}");
         Debug.Log($"Foreign affairs: {Statman.GetComponent<StatManager>().foreignAffairs}");
-
+*/
         if (!Statman.GetComponent<StatManager>().CheckStatStatus())
         {
             Debug.Log("One of the stats is 0. It's game over!");
@@ -226,8 +233,7 @@ public class Feed : MonoBehaviour
 
         if (e.Status == 0)
         {
-            // Block this post
-            BlockedPosts.Add(post);
+            // Delete this post immediately
             DeletePostByUniqueId(e.ObjectId);
         }
         else
@@ -248,12 +254,17 @@ public class Feed : MonoBehaviour
                 }
             }
         }
-        
+        BlockedPosts.Add(post); // make sure this post won't reappear
     }
 
     private void InteractorOnCommentInteractionEvent(object sender, CommentInteractionEventArgs e)
     {
         var comment = GetCommentByUniqueId(e.CommentId);
+        
+        if (comment == null)
+        {
+            return;
+        }
         
         if (e.Status != 0)
         {
@@ -296,9 +307,23 @@ public class Feed : MonoBehaviour
 
     private void TryPosting()
     {
-        var randomPostIndex = PickRandom(PossiblePosts.posts.Except(BlockedPosts).ToList(), _lastPostIndex);
-        if (randomPostIndex == -1)
+        if (outOfPosts)
         {
+            if (_currentOutOfPostIteration >= IterationCountAfterPostingDone)
+            {
+                VictoryEvent?.Invoke(this, EventArgs.Empty);
+            }
+            
+            _currentOutOfPostIteration++;
+            _allCommentCount = GetAllCommentCount();
+            return;
+        }
+        
+        var randomPostIndex = PickRandom(PossiblePosts.posts, _lastPostIndex);
+
+        if (randomPostIndex == -1 || BlockedPosts.Count >= PossiblePosts.posts.Count)
+        {
+            outOfPosts = true;
             return;
         }
         
@@ -331,6 +356,11 @@ public class Feed : MonoBehaviour
                 Posts.RemoveAt(0);
                 InstantiatedPosts.RemoveAt(0);
             }
+
+            if (CheckIfSuchPostWasMade(newPost))
+            {
+                return;
+            }
             
             Posts.Add(newPost);
             _lastPostIndex = randomPostIndex;
@@ -346,14 +376,59 @@ public class Feed : MonoBehaviour
         }
     }
 
+    private bool CheckIfSuchCommentWasMade(Comment comment)
+    {
+        foreach (var com in Comments)
+        {
+            if (com.comment.Equals(comment.comment) && com.commentingGroup.Equals(comment.commentingGroup))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool CheckIfSuchPostWasMade(Post post)
+    {
+        foreach (var p in Posts)
+        {
+            if (p.postContent.Equals(post.postContent))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
+    private int GetAllCommentCount()
+    {
+        int i = 0;
+        foreach (var post in PossiblePosts.posts)
+        {
+            i += post.possibleComments.Length;
+        }
+
+        return i;
+    }
+    
     private void TryCommenting()
     {
+        if (outOfComments)
+        {
+            Debug.LogWarning("out of comments!");
+            return;
+        }
+        
         // pick random post to comment on
-        var randomPost = PickRandom(InstantiatedPosts, -1);
+        
+        var randomPost = PickRandom(Posts, -1);
         if (randomPost == -1)
         {
             return;
         }
+
         if (!Posts[randomPost]._approved)
         {
             return;
@@ -361,14 +436,29 @@ public class Feed : MonoBehaviour
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
-
+        
         var newComment = Posts[randomPost].possibleComments[randomComment];
+
+        if (CheckIfSuchCommentWasMade(newComment))
+        {
+            return;
+        }
+
+        if (Comments.Count == _allCommentCount)
+        {
+            outOfComments = true;
+            return;
+        }
+        
         newComment._uniqueId = uniqueId;
         uniqueId++;
         Comments.Add(newComment);
         GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], Posts[randomPost], newComment);
         InstantiatedComments.Add(instantiatedComment);
-
+        
+        Debug.Log($"post count {Posts.Count}");
+        Debug.Log($"randompost {randomPost}");
+        
         Debug.Log($"{Posts[randomPost].possibleComments[randomComment].commentingGroup} comment  '{Posts[randomPost].possibleComments[randomComment].comment}' " +
                   $" under {Posts[randomPost].postContent}");
     }
@@ -377,6 +467,7 @@ public class Feed : MonoBehaviour
     {
         if (objects.Count == 0)
         {
+            Debug.Log("should be out of posts!");
             return -1;
         }
         
