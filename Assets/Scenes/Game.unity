@@ -1530,7 +1530,11 @@ PrefabInstance:
     - target: {fileID: 5494841043495805861, guid: 1ce4f8a6c002d624cb3acb920644bd80, type: 3}
       propertyPath: quoteGO
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1808424910986989857}
+    - target: {fileID: 5494841043495805861, guid: 1ce4f8a6c002d624cb3acb920644bd80, type: 3}
+      propertyPath: postPrefab
+      value: 
+      objectReference: {fileID: 3323584078618593892, guid: 51a1a1baa8f88414e8c27d3beb958dd8, type: 3}
     - target: {fileID: 5494841043495805861, guid: 1ce4f8a6c002d624cb3acb920644bd80, type: 3}
       propertyPath: quotePrefab
       value: 
@@ -1539,6 +1543,10 @@ PrefabInstance:
       propertyPath: postParentGO
       value: 
       objectReference: {fileID: 1972678633}
+    - target: {fileID: 5494841043495805861, guid: 1ce4f8a6c002d624cb3acb920644bd80, type: 3}
+      propertyPath: commentPrefab
+      value: 
+      objectReference: {fileID: 6758838658451393102, guid: 693ac7731cc3544b7ac26a160e5d455f, type: 3}
     - target: {fileID: 5494841043495805861, guid: 1ce4f8a6c002d624cb3acb920644bd80, type: 3}
       propertyPath: postAppendingGO
       value: 
@@ -3527,6 +3535,11 @@ PrefabInstance:
 --- !u!224 &1808424910986989856 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2370069822174681154, guid: a0681f71de87d48929dce8dc236cea4a, type: 3}
+  m_PrefabInstance: {fileID: 1808424910986989855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1808424910986989857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3009963315522819344, guid: a0681f71de87d48929dce8dc236cea4a, type: 3}
   m_PrefabInstance: {fileID: 1808424910986989855}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4463031866645943646
