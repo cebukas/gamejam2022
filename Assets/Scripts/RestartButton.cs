@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Core;
 
-namespace UIButtons
+namespace UI
 {
     public class RestartButton : MonoBehaviour
     {
