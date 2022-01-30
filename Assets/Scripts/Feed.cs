@@ -75,8 +75,9 @@ public class Feed : MonoBehaviour
         InvokeRepeating(nameof(TryPosting), 0, PostDelaySeconds);
         InvokeRepeating(nameof(TryCommenting), 0, CommentDelaySeconds);
     }
+    
     private void Update(){
-           uiNotifications.updateText(getNotificationsCount());
+        uiNotifications.updateText(getNotificationsCount());
     }
 
     private void PrepareForEvents()
@@ -95,18 +96,22 @@ public class Feed : MonoBehaviour
             case PerkEnum.Bribery:
                 Debug.Log("bribin'");
                 Bribe(e.PostId);
+                Statman.GetComponent<StatManager>().UpdateStat(Stats.CryptoKopek, -50);
                 break;
             case PerkEnum.Embrace:
                 Debug.Log("embracin'");
                 Embrace(e.PostId);
+                Statman.GetComponent<StatManager>().UpdateStat(Stats.CitizenSupport, -50);
                 break;
             case PerkEnum.Reshuffle:
                 Debug.Log("reshufflin'");
                 Reshuffle();
+                Statman.GetComponent<StatManager>().UpdateStat(Stats.ForeignAffairs, -50);
                 break;
             case PerkEnum.Wait:
                 Debug.Log("waitin'");
                 Wait();
+                Statman.GetComponent<StatManager>().UpdateStat(Stats.DictatorApproval, -50);
                 break;
         }
     }
