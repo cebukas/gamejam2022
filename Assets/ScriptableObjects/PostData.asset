@@ -262,6 +262,120 @@ MonoBehaviour:
       _approved: 0
     _uniqueId: 0
     _approved: 0
+  - user: '@Citizens Militia'
+    postType: 2
+    postContent: Eliminate taxes for the poor!
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 2
+      approvalStatChange: -15
+      disapprovalStatChange: 15
+    - statType: 8
+      approvalStatChange: 15
+      disapprovalStatChange: -15
+    possibleComments:
+    - commentingGroup: '@USER256819'
+      comment: FINALLY!
+      statChanges:
+      - statType: 2
+        approvalStatChange: -5
+        disapprovalStatChange: 5
+      - statType: 8
+        approvalStatChange: 5
+        disapprovalStatChange: -5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 2
+    postContent: Crypto Kopek is a hot new thing.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@H4XER$ UNITED'
+      comment: Actually it is very "cool".
+      statChanges:
+      - statType: 1
+        approvalStatChange: 8
+        disapprovalStatChange: -8
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Crypto Kopek'
+    postType: 2
+    postContent: H4XER$ UNITED has devaluated the Crypto Kopek.
+    statChanges:
+    - statType: 1
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 8
+      approvalStatChange: -15
+      disapprovalStatChange: 15
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: You damn dogs!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 5
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@H4XER$ UNITED'
+    postType: 2
+    postContent: Hacking ammounts to 10% GDP.
+    statChanges:
+    - statType: 2
+      approvalStatChange: 10
+      disapprovalStatChange: -5
+    - statType: 4
+      approvalStatChange: -15
+      disapprovalStatChange: 10
+    possibleComments: []
+    _uniqueId: 0
+    _approved: 0
+  - user: '@League of Evil'
+    postType: 2
+    postContent: '"Free" loan of 1B Crypto Kopeks was granted.'
+    statChanges:
+    - statType: 1
+      approvalStatChange: 30
+      disapprovalStatChange: -20
+    - statType: 2
+      approvalStatChange: 5
+      disapprovalStatChange: -5
+    - statType: 4
+      approvalStatChange: 15
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Thx, comrades!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 7
+        disapprovalStatChange: -7
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@League of Evil'
+      comment: No problemo, amigo!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 6
+        disapprovalStatChange: -6
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
   - user: '@The Supreme Ruler'
     postType: 3
     postContent: A supreme order to kill 200 peasants!
@@ -339,6 +453,154 @@ MonoBehaviour:
       - statType: 4
         approvalStatChange: -4
         disapprovalStatChange: 4
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 3
+    postContent: Today we have proudly opened 5 prisons.
+    statChanges:
+    - statType: 1
+      approvalStatChange: 10
+      disapprovalStatChange: 0
+    - statType: 4
+      approvalStatChange: -10
+      disapprovalStatChange: 0
+    - statType: 8
+      approvalStatChange: -10
+      disapprovalStatChange: 0
+    possibleComments:
+    - commentingGroup: '@Crypto Kopek'
+      comment: Crypto Kopek rose 20%
+      statChanges:
+      - statType: 1
+        approvalStatChange: 20
+        disapprovalStatChange: -10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@The Supreme Ruler'
+    postType: 3
+    postContent: 'Wishlist: building a portal to hell.'
+    statChanges:
+    - statType: 1
+      approvalStatChange: -15
+      disapprovalStatChange: 20
+    - statType: 2
+      approvalStatChange: 30
+      disapprovalStatChange: -30
+    - statType: 4
+      approvalStatChange: -30
+      disapprovalStatChange: 20
+    - statType: 8
+      approvalStatChange: -20
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@League of Evil'
+      comment: Let's collaborate!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 10
+        disapprovalStatChange: -4
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@H4XER$ UNITED'
+    postType: 3
+    postContent: Dictator shame pics leaked.
+    statChanges:
+    - statType: 2
+      approvalStatChange: -20
+      disapprovalStatChange: 20
+    - statType: 4
+      approvalStatChange: -40
+      disapprovalStatChange: 30
+    - statType: 8
+      approvalStatChange: -20
+      disapprovalStatChange: 20
+    possibleComments:
+    - commentingGroup: '@Crypto Kopek'
+      comment: Crypto Kopek fell 30%.
+      statChanges:
+      - statType: 1
+        approvalStatChange: -30
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Lick my shiny metal @$$!
+      statChanges:
+      - statType: 2
+        approvalStatChange: 30
+        disapprovalStatChange: -20
+      - statType: 2
+        approvalStatChange: -20
+        disapprovalStatChange: 20
+      - statType: 4
+        approvalStatChange: 30
+        disapprovalStatChange: -20
+      - statType: 8
+        approvalStatChange: -20
+        disapprovalStatChange: 10
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@League of Evil'
+    postType: 3
+    postContent: Let's get rid of the rotten Western Alliance!
+    statChanges:
+    - statType: 4
+      approvalStatChange: -20
+      disapprovalStatChange: 10
+    possibleComments:
+    - commentingGroup: '@H4XER$ UNITED'
+      comment: Just do ransomware instead.
+      statChanges:
+      - statType: 4
+        approvalStatChange: -10
+        disapprovalStatChange: 5
+      _uniqueId: 0
+      _approved: 0
+    _uniqueId: 0
+    _approved: 0
+  - user: '@Citizens Militia'
+    postType: 3
+    postContent: RESIST!
+    statChanges:
+    - statType: 2
+      approvalStatChange: -10
+      disapprovalStatChange: 10
+    - statType: 4
+      approvalStatChange: 10
+      disapprovalStatChange: -10
+    - statType: 8
+      approvalStatChange: 30
+      disapprovalStatChange: -10
+    possibleComments:
+    - commentingGroup: '@Western Alliance'
+      comment: Democracy for all!
+      statChanges:
+      - statType: 4
+        approvalStatChange: 15
+        disapprovalStatChange: -10
+      - statType: 8
+        approvalStatChange: 25
+        disapprovalStatChange: -20
+      _uniqueId: 0
+      _approved: 0
+    - commentingGroup: '@The Supreme Ruler'
+      comment: Don't even bother...
+      statChanges:
+      - statType: 2
+        approvalStatChange: 10
+        disapprovalStatChange: -20
+      - statType: 8
+        approvalStatChange: -10
+        disapprovalStatChange: 15
       _uniqueId: 0
       _approved: 0
     _uniqueId: 0
