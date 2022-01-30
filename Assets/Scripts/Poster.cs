@@ -8,6 +8,13 @@ public class Poster : MonoBehaviour
 
     public GameObject postParentGO, postAppendingGO;
 
+    private LayoutRefresher layoutRefresher;
+
+    private void Start()
+    {
+        layoutRefresher = postParentGO.GetComponent<LayoutRefresher>();
+    }
+
     public void Quote(Quote quoteData)
     {
         quoteGO.GetComponent<UIQuote>().UpdateFields(quoteData);
@@ -22,6 +29,7 @@ public class Poster : MonoBehaviour
 
         instantiatedPost.GetComponent<UIPoster>().UpdateFields(post);
 
+        StartCoroutine(layoutRefresher.UpdateLayoutGroup());
         return instantiatedPost;
     }
     public GameObject Comment(GameObject postGO, Post post, Comment comment)
@@ -34,6 +42,7 @@ public class Poster : MonoBehaviour
 
         instantiatedComment.GetComponent<UIComment>().UpdateFields(post, comment);
 
+        StartCoroutine(layoutRefresher.UpdateLayoutGroup());
         return instantiatedComment;
     }
 }
