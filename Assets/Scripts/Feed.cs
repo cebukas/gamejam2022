@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Feed : MonoBehaviour
 {
-    public event EventHandler GameOverEvent;
-    public event EventHandler VictoryEvent;
+    private SceneController _sceneController;
     
     public GameObject Poster;
     public GameObject Statman;
@@ -52,52 +52,16 @@ public class Feed : MonoBehaviour
     public void StartUpdateFeedRoutine()
     {
         PrepareForEvents();
-        UpdateTimeString();
 
+        _sceneController = FindObjectOfType<SceneController>();
+        
         _allCommentCount = GetAllCommentCount();
         
         InvokeRepeating(nameof(TryChangingQuote), 0, QuoteDelaySeconds);
         InvokeRepeating(nameof(TryPosting), 0, PostDelaySeconds);
         InvokeRepeating(nameof(TryCommenting), 0, CommentDelaySeconds);
-        
-        InvokeRepeating(nameof(DayUpdate), 0, DayDuration);
     }
 
-    private void UpdateTimeString()
-    {
-        var date = DateTime.Now.ToString(CultureInfo.CurrentCulture);
-        DateTime dDate;
-        if (DateTime.TryParse(date, out dDate))
-        {
-            date = dDate.ToString("MM/dd/yyyy HH:mm:ss tt");
-        }
-        
-        var timeStringTemp = date.Split(' ')[1];
-        var minutes = timeStringTemp.Split(':')[1];
-        var hours = Random.Range(8, 20).ToString();
-
-        TimeString = hours + ':' + minutes;
-        Debug.Log($"Current time: {TimeString}");
-    }
-    
-    private void DayUpdate()
-    {
-        /*
-        Debug.Log("Day results! Printing stats:");
-        Debug.Log($"Money: {Statman.GetComponent<StatManager>().cryptoKopek}");
-        Debug.Log($"Dictator approval: {Statman.GetComponent<StatManager>().dictatorApproval}");
-        Debug.Log($"Citizen support: {Statman.GetComponent<StatManager>().citizenSupport}");
-        Debug.Log($"Foreign affairs: {Statman.GetComponent<StatManager>().foreignAffairs}");
-*/
-        if (!Statman.GetComponent<StatManager>().CheckStatStatus())
-        {
-            Debug.Log("One of the stats is 0. It's game over!");
-            GameOverEvent?.Invoke(this, EventArgs.Empty);
-        }
-        
-        UpdateTimeString();
-    }
-    
     private void PrepareForEvents()
     {
         Interactor.CommentInteractionEvent += InteractorOnCommentInteractionEvent;
@@ -314,7 +278,8 @@ public class Feed : MonoBehaviour
         {
             if (_currentOutOfPostIteration >= IterationCountAfterPostingDone)
             {
-                VictoryEvent?.Invoke(this, EventArgs.Empty);
+                _sceneController.LoadScene(Scene.GameWon);
+                //VictoryEvent?.Invoke(this, EventArgs.Empty);
             }
             
             _currentOutOfPostIteration++;
@@ -439,6 +404,11 @@ public class Feed : MonoBehaviour
         // pick random comment 
         var randomComment = PickRandom(Posts[randomPost].possibleComments, -1);
         // comment
+
+        if (randomPost > Posts.Count || randomComment > Posts[randomPost].possibleComments.Count())
+        {
+            return;
+        }
         
         var newComment = Posts[randomPost].possibleComments[randomComment];
 
