@@ -1403,6 +1403,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 86f3557dfebffe948be851b471b0f106, type: 3}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ced433285c275ac4bbcaa10855a45c02, type: 3}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: decline
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24678af68f261414c9e443e02474c769, type: 3}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: approve
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dd60991fa7687644c8f71c52a4a74d8d, type: 3}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: commentNotifacation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738316311714999862, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8738316311714999866, guid: c1db877ca43854a29bc47b5326d4bb26, type: 3}
       propertyPath: m_Name
       value: Game Manager
