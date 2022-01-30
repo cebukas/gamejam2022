@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 1524518978860430563}
   - component: {fileID: 1524518978860430589}
   - component: {fileID: 1524518978860430562}
-  - component: {fileID: 4693064227244688099}
   - component: {fileID: 567271281559974257}
   m_Layer: 0
   m_Name: Image
@@ -235,32 +234,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4693064227244688099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524518978860430560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b733de8d5743684468bf00fac7fd9e9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comment:
-    commentingGroup: 
-    comment: 
-    statChanges: []
-    _uniqueId: 0
-    _approved: 0
-  post:
-    user: 
-    postType: 0
-    postContent: 
-    statChanges: []
-    possibleComments: []
-    _uniqueId: 0
-    _approved: 0
 --- !u!114 &567271281559974257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +271,7 @@ GameObject:
   - component: {fileID: 919686397525620285}
   - component: {fileID: 5222294707486913605}
   - component: {fileID: 4803825760452366808}
+  - component: {fileID: 5080960515072370739}
   m_Layer: 0
   m_Name: Comment
   m_TagString: Untagged
@@ -365,6 +339,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &5080960515072370739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758838658451393102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b733de8d5743684468bf00fac7fd9e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment:
+    commentingGroup: 
+    comment: 
+    statChanges: []
+    _uniqueId: 0
+    _approved: 0
+  post:
+    user: 
+    postType: 0
+    postContent: 
+    statChanges: []
+    possibleComments: []
+    _uniqueId: 0
+    _approved: 0
 --- !u!1 &8826059311928627283
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 2861967323370955428, guid: 37ccc8c26bf7a4b66a252eeb0b810351, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4693064227244688099}
+      objectReference: {fileID: 5080960515072370739}
     - target: {fileID: 2861967323370955428, guid: 37ccc8c26bf7a4b66a252eeb0b810351, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -605,7 +605,7 @@ PrefabInstance:
     - target: {fileID: 5777036889501776466, guid: 37ccc8c26bf7a4b66a252eeb0b810351, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4693064227244688099}
+      objectReference: {fileID: 5080960515072370739}
     - target: {fileID: 5777036889501776466, guid: 37ccc8c26bf7a4b66a252eeb0b810351, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
