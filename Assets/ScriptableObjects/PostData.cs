@@ -37,7 +37,7 @@ public class Comment
 [Serializable]
 public class StatChange
 {
-    public string statType;
+    public int statType;
 
     public int approvalStatChange;
 

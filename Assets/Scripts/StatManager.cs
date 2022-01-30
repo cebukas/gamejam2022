@@ -14,7 +14,7 @@ public enum PerkEnum
 public class StatManager : MonoBehaviour
 {
     public int cryptoKopek, dictatorApproval, foreignAffairs, citizenSupport;
-
+    public GameObject statGO;
     public int PerkStatus = 0;
 
 
@@ -24,6 +24,8 @@ public class StatManager : MonoBehaviour
         dictatorApproval = 50;
         citizenSupport = 50;
         foreignAffairs = 50;
+        
+        UpdateStat(Stats.CitizenSupport, 0);
     }
 
     /*
@@ -32,6 +34,7 @@ public class StatManager : MonoBehaviour
      */
     public void UpdateStat(Stats stat, int change)
     {
+        Debug.Log("someone is updating stats");
         switch (stat)
         {
             case Stats.CitizenSupport:
@@ -47,7 +50,7 @@ public class StatManager : MonoBehaviour
                 foreignAffairs += change;
                 break;
         }
-
+        statGO.GetComponent<UIStats>().updateStats(cryptoKopek, dictatorApproval, citizenSupport, foreignAffairs);
         CheckForPerks();
     }
 

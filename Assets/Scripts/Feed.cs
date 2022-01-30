@@ -135,10 +135,15 @@ public class Feed : MonoBehaviour
     {
         var post = GetPostByUniqueId(postId);
         post._approved = true;
-        
-        foreach (var statChange in post.statChanges)
+        if (post.statChanges != null)
         {
-            Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange * 2);
+            foreach (var statChange in post.statChanges)
+            {
+                if (statChange.statType != 0)
+                {
+                    Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange * 2);
+                }
+            }
         }
     }
 
@@ -223,6 +228,7 @@ public class Feed : MonoBehaviour
     
     private void InteractorOnPostInteractionEvent(object sender, PostInteractionEventArgs e)
     {
+
         var post = GetPostByUniqueId(e.ObjectId);
 
         if (e.Status == 0)
@@ -233,12 +239,19 @@ public class Feed : MonoBehaviour
         else
         {
             post._approved = true;
-            foreach(var statChange in post.statChanges)
+            if(post.statChanges != null)
             {
-                if (post._approved)
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
-                else
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
+                foreach(var statChange in post.statChanges)
+                {
+                    if(statChange.statType != 0)
+                    {
+                        if (post._approved){
+                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                        }
+                        else
+                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+                    }
+                }
             }
         }
         BlockedPosts.Add(post); // make sure this post won't reappear
@@ -256,12 +269,18 @@ public class Feed : MonoBehaviour
         if (e.Status != 0)
         {
             comment._approved = true;
-            foreach(var statChange in comment.statChanges)
+            if(comment.statChanges != null)
             {
-                if (comment._approved)
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.approvalStatChange);
-                else
-                    Statman.GetComponent<StatManager>().UpdateStat(Interactor.StatCaster(statChange.statType), statChange.disapprovalStatChange);
+                foreach(var statChange in comment.statChanges)
+                {
+                    if(statChange.statType != 0)
+                    {
+                        if (comment._approved)
+                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.approvalStatChange);
+                        else
+                            Statman.GetComponent<StatManager>().UpdateStat((Stats)statChange.statType, statChange.disapprovalStatChange);
+                    }
+                }
             }
         }
         else
@@ -273,6 +292,10 @@ public class Feed : MonoBehaviour
     private void TryChangingQuote()
     {
         var randomQuoteIndex = PickRandom(DictatorQuotes.quotes, _lastQuoteIndex);
+        if(randomQuoteIndex == -1)
+        {
+            return;
+        }
         ActiveQuote = DictatorQuotes.quotes[randomQuoteIndex];
 
         _lastQuoteIndex = randomQuoteIndex;
@@ -399,7 +422,12 @@ public class Feed : MonoBehaviour
         }
         
         // pick random post to comment on
+        
         var randomPost = PickRandom(Posts, -1);
+        if (randomPost == -1)
+        {
+            return;
+        }
 
         if (!Posts[randomPost]._approved)
         {
@@ -424,9 +452,7 @@ public class Feed : MonoBehaviour
         
         newComment._uniqueId = uniqueId;
         uniqueId++;
-        
         Comments.Add(newComment);
-        
         GameObject instantiatedComment = Poster.GetComponent<Poster>().Comment(InstantiatedPosts[randomPost], Posts[randomPost], newComment);
         InstantiatedComments.Add(instantiatedComment);
         

@@ -1266,6 +1266,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7557507869602332467, guid: 3d2f98f4c5895f041b01fa350babc9e6, type: 3}
+      propertyPath: statGO
+      value: 
+      objectReference: {fileID: 1124803285}
     - target: {fileID: 7557507869602332468, guid: 3d2f98f4c5895f041b01fa350babc9e6, type: 3}
       propertyPath: m_Name
       value: StatManager
@@ -1922,6 +1926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1124803286}
+  - component: {fileID: 1124803287}
   m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
@@ -1952,6 +1957,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1132.3, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1124803287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124803285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9d54a88ce4ea443afb451b1c5d1d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crypto: {fileID: 1828203373}
+  dictator: {fileID: 1057748273}
+  citizen: {fileID: 1557591037}
+  foreign: {fileID: 1008932811}
 --- !u!224 &1147532796 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8928488339345368618, guid: 3927eb7fb4f6e42e79df4d19d219fea7, type: 3}
