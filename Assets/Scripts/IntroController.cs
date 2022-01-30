@@ -22,12 +22,14 @@ namespace Intro
 
         public void ClearText()
         {
+            FindObjectOfType<AudioManager>().Play("click"); 
             inputTMP.text = null;
             focusInput();
         }
 
         public void LoadGameIfPossible()
         {
+            FindObjectOfType<AudioManager>().Play("click"); 
             var text = inputTMP.text;
             if(string.IsNullOrWhiteSpace(text)) return;
 
