@@ -37,6 +37,8 @@ public class Feed : MonoBehaviour
     public List<GameObject> InstantiatedPosts = new List<GameObject>();
     public List<GameObject> InstantiatedComments = new List<GameObject>();
 
+    public UINotifications uiNotifications;
+
     private int _lastQuoteIndex = -1;
     private int _lastPostIndex = -1;
     private int _currentMood = -1;
@@ -60,6 +62,9 @@ public class Feed : MonoBehaviour
         InvokeRepeating(nameof(TryChangingQuote), 0, QuoteDelaySeconds);
         InvokeRepeating(nameof(TryPosting), 0, PostDelaySeconds);
         InvokeRepeating(nameof(TryCommenting), 0, CommentDelaySeconds);
+    }
+    private void Update(){
+           uiNotifications.updateText(getNotificationsCount());
     }
 
     private void PrepareForEvents()
@@ -335,13 +340,32 @@ public class Feed : MonoBehaviour
 
             GameObject instantiatedPost = Poster.GetComponent<Poster>().Post(Posts[Posts.Count - 1]);
             InstantiatedPosts.Add(instantiatedPost);
-            
             Debug.Log($"{Posts[Posts.Count - 1].postContent}");
         }
         else
         {
             Debug.Log("No posts to match dictator's mood");
         }
+    }
+
+    private int getNotificationsCount()
+    {
+        int notifications = 0;
+        foreach(var post in Posts)
+        {
+            if(post._approved == false)
+            {
+                notifications++;
+            }
+        }
+        foreach(var comment in Comments)
+        {
+            if(comment._approved == false)
+            {
+                notifications++;
+            }
+        }
+        return notifications;
     }
 
     private bool CheckIfSuchCommentWasMade(Comment comment)
