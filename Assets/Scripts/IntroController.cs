@@ -9,7 +9,7 @@ namespace Intro
     public class IntroController : MonoBehaviour
     {
         [SerializeField]
-        private TMP_InputField textMeshProUGUI;
+        private TMP_InputField inputTMP;
         [SerializeField]
         private Settings settings;
         [SerializeField]
@@ -22,13 +22,13 @@ namespace Intro
 
         public void ClearText()
         {
-            textMeshProUGUI.text = null;
+            inputTMP.text = null;
             focusInput();
         }
 
         public void LoadGameIfPossible()
         {
-            var text = textMeshProUGUI.text;
+            var text = inputTMP.text;
             if(string.IsNullOrWhiteSpace(text)) return;
 
             settings.country = text;
@@ -37,7 +37,7 @@ namespace Intro
 
         private void focusInput()
         {
-            textMeshProUGUI.ActivateInputField();
+            inputTMP.ActivateInputField();
         }
     }
 }
